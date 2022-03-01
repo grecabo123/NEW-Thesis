@@ -6,7 +6,7 @@
 	
 
 
-		$all = "SELECT *from tbl_client_info JOIN tbl_service_type ON client_info_id = tbl_info_fk WHERE fca = 'On Payment'";
+		$all = "SELECT *from tbl_client_info JOIN tbl_service_type ON client_info_id = tbl_info_fk WHERE fca = 'On Payment' AND fcca='pending'";
 
 		$result_val = [];
 		$result_q = mysqli_query($conn,$all);

@@ -189,6 +189,8 @@ $('#send').click(function(event) {
 						$('.data-table').css('display', 'block');
 						$('.payment_occu').css('display', 'none');
 						$('.payment_fsec').css('display', 'none');
+						$('#amount').val('');
+						$('#file_payment').val('');
 					},2000);
 				}
 				else{
@@ -201,6 +203,8 @@ $('#send').click(function(event) {
 						$('.data-table').css('display', 'block');
 						$('.payment_occu').css('display', 'none');
 						$('.payment_fsec').css('display', 'none');
+						$('#amount').val('');
+						$('#file_payment').val('');
 					},2000);
 				}
 			}
@@ -239,6 +243,8 @@ $('#fsec_send').click(function(event) {
 						$('.data-table').css('display', 'block');
 						$('.payment_occu').css('display', 'none');
 						$('.payment_fsec').css('display', 'none');
+						$('#fsec_payment').val('');
+						$('#fsec_amt').val('');
 					},2000);
 				}
 				else{
@@ -290,6 +296,7 @@ $('#occu_send').click(function(event) {
 						$('.data-table').css('display', 'block');
 						$('.payment_occu').css('display', 'none');
 						$('.payment_fsec').css('display', 'none');
+						$('#occu_payment').val('');
 					},2000);
 				}
 				else{
@@ -302,7 +309,8 @@ $('#occu_send').click(function(event) {
 						$('.data-table').css('display', 'block');
 						$('.payment_occu').css('display', 'none');
 						$('.payment_fsec').css('display', 'none');
-					},2000);
+						$('#occu_amt').val('');
+					},2000);	
 				}
 			}
 		});	

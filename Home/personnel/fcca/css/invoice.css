@@ -32,3 +32,32 @@
 #loading{
     display: none;
 }
+.modal_color,.lack_msg{
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: rgba(0,0,0,0.9);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+}
+textarea{
+    resize: none;
+}
+.bg-modal{
+    visibility: visible;
+    opacity: 1;
+}
+.modal_option{
+    border-radius: 10px;
+    position: relative;
+    width: 380px;
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+}

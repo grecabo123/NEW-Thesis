@@ -49,18 +49,41 @@ $(document).ready(function(){
 	// occupancy
 	$(document).on('click', '.compile_occupancy', function(event) {
 		event.preventDefault();
-		var num_fsec = $(this).attr('value');
+		var num_occu = $(this).attr('value');
+		
     	$.ajax({
     		url: "Compilation/search",
     		type: "POST",
     		data: {
     			"search_occu" : true,
-    			num_fsec:num_fsec,
+    			num_occu:num_occu,
     		},
     		success:function(response){
     			console.log(response);
     			if (response == 1) {
     				window.location = "compilation_occupancy";
+    			}
+    		}
+    	});
+	});
+
+
+	// re upload for payment
+
+	$(document).on('click', '.occupancy_payment', function(event) {
+		event.preventDefault();
+		var id = $(this).attr('value');
+		$.ajax({
+    		url: "Compilation/search",
+    		type: "POST",
+    		data: {
+    			"occupancy_pay" : true,
+    			id:id,
+    		},
+    		success:function(response){
+    			console.log(response);
+    			if (response == 1) {
+    				window.location = "Resubmit/occupancy";
     			}
     		}
     	});
@@ -243,13 +266,13 @@ function status(){
 						);
 					}
 					else if (val['status_cro'] == "OK" && val['service_type'] == "FSIC-Occupancy Permit") {
-						if (val['fca'] == 'Payment' || val['fca'] == "On Payment" || val['fca'] == "Done" || val['fca'] =="pending" && val['fcca'] == "Paid" && val['fses'] == "pending") {
+						if (val['fca'] == 'Payment' || val['fca'] == "On Payment" || val['fca'] == "Done" || val['fca'] =="pending" && val['fcca'] == "Paid" || val['fcca'] == "pending" && val['fses'] == "pending") {
 							$('#data_status').append('<tr>'+
 								'<td class="text-light"> <span id="fk_id">'+val['queue']+'</span></td>'+
                                 '<td class="text-light">'+val['service_type']+'</td>'+
                                 '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: default;" value="'+val['tbl_service_id']+'" >'+val['status_cro']+'</a></td>'+
                                 '<td class="text-light"><a class="view_data text-info" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fca']+'</a></td>'+
-                                '<td class="text-light"><a class="view_data text-info" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fcca']+'</a></td>'+
+                                '<td class="text-light"><a class="occupancy_payment text-danger" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fcca']+'</a></td>'+
                                 '<td class="text-light"><a class="view_data" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fses']+'</a></td>'+
                                 '<td class="text-light"><a class="view_data" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fire_marshal']+'</a></td>'+
                             '</tr>'

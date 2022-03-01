@@ -782,3 +782,97 @@ function update_fsec(){
 		});
 	}
 }
+
+// occupancy re submit
+
+function update_occu(){
+
+	// data fields
+	var num = $('#occupancy').attr('value');
+	var type = $('#permit_type').val();
+	var email = $('#user_email').val();
+	var name_person = $('#name_p').val();
+	var contact = $('#contact_occupancy').val();
+	var business = $('#name_business').val();
+
+	// data file
+	var endorse = $('#endorse')[0].files[0];
+	var building_certificate = $('#building_certificate')[0].files[0];
+	var electrical = $('#electrical')[0].files[0];
+	var bfp_or = $('#bfp_or')[0].files[0];
+	var fsec_clearance = $('#fsec_clearance')[0].files[0];
+
+	var form_data = new FormData();
+	$('#occupancy').addClass('none');
+	$('.hide').css('display', 'block');
+
+
+	if ($('#endorse')[0].files.length === 1 && $('#building_certificate')[0].files.length === 1 && $('#fsec_clearance')[0].files.length === 1 && $('#electrical')[0].files.length === 1 && $('#bfp_or')[0].files.length === 1){
+
+
+		// data fields
+		form_data.append('type_of_permit',type);
+		form_data.append('email',email);
+		form_data.append('name_person',name_person);
+		form_data.append('contact',contact);
+		form_data.append('business',business);
+		form_data.append('num',num);
+
+
+		// file 
+		form_data.append('endorse_file',endorse);
+		form_data.append('building_certificate_file',building_certificate);
+		form_data.append('electrical_file',electrical);
+		form_data.append('bfp_or_file',bfp_or);
+		form_data.append('fsec_clearance_file',fsec_clearance);
+
+		$.ajax({
+			url: "Compilation/comply_occu",
+			type: "POST",
+			datatype: "script",
+			cache: false,
+			contentType: false,
+			processData: false,
+			data: form_data,
+
+
+			success:function(response){
+				
+				if (response == "Yes") {
+					setTimeout(function(){
+						$('#occupancy').removeClass('none');
+						$('#occupancy').attr('disabled', true);
+						$('.hide').css('display', 'none');
+			        	$('#endorse').val('');
+						$('#building_certificate').val('');
+						$('#electrical').val('');
+						$('#bfp_or').val('');
+						$('#fsec_clearance').val('');
+						alertify.success('Compilation Sent');
+			        },3000);
+			        setTimeout(function(){
+			        	window.location ="status";
+			        },5000);
+				}
+				else{
+					setTimeout(function(){
+						$('#occupancy').removeClass('none');
+						$('#occupancy').attr('disabled', true);
+						$('.hide').css('display', 'none');
+			        	$('#endorse').val('');
+						$('#building_certificate').val('');
+						$('#electrical').val('');
+						$('#bfp_or').val('');
+						$('#fsec_clearance').val('');
+						alertify.error('Failed To Sent');
+			        },3000);
+			         setTimeout(function(){
+			        	window.location ="status";
+			        },5000);
+				}
+			}
+
+		});
+	}
+
+}

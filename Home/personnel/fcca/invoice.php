@@ -10,6 +10,8 @@
     <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="../../assets/css/alertify.css" rel="stylesheet">
+    <link href="../../assets/css/alertify.min.css" rel="stylesheet">
     <link href="../../assets/img/Icon/logo.png" rel="icon">
     <link rel="stylesheet" href="css/invoice.css">
     <title>Fire Code Collecting Agent</title>
@@ -123,14 +125,15 @@
                                 <div class="row d-flex">
                                     <div class="col-md-4">
                                  <button class="btn btn-sm btn-success" id="submit" value="<?php echo $service_id; ?>"><i class="fa fa-paper-plane mr-1"></i> Proceed</button>
-                            <button class="btn btn-sm btn-success" id="loading" type="button" disabled>
+                                    <button class="btn btn-sm btn-success" id="loading" type="button" disabled>
                                   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                   Processing...
                                 </button>   
                             </div>
                             <div class="col-md-1">
-                                <button class="btn btn-sm btn-danger" onclick="Out();">Cancel</button>
+                                <button class="btn btn-sm btn-danger" id="modal_open">Option</button>
                             </div>
+
                                 </div>
                                 <p class="text-danger" id="error"></p>
                             </div>
@@ -142,6 +145,61 @@
             </div>
         </div>
     </div>
+
+    <div class="modal_color" id="myModal">
+        <div class="container">
+            <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Option</h4>
+                <!-- <button type="button" class="btn-close"></button> -->
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                Choose an Option
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="lack">Lacking</button>
+                <button type="button" class="btn btn-secondary" onclick="modal_close();">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>      
+    </div>
+
+    <div class="lack_msg">
+        <div class="container w-75">
+            <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Message</h4>
+                <!-- <button type="button" class="btn-close"></button> -->
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                <textarea name="" id="text-msg" cols="5" rows="5" class="form-control" placeholder="Wrtie a Message"></textarea>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="send_msg" value="<?php echo $service_id; ?>">Send</button>
+                <button type="button" class="btn btn-secondary" onclick="close_msg();">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>      
+    </div>
+
 </div>
         <?php
     }
@@ -157,6 +215,8 @@
  <script type="text/javascript" src="../../assets/js/fontawesome.js"></script>
     <script src="../../assets/js/jquery-3.4.1.min.js"></script>
     <script src="js/invoice.js"></script>
+    <script src="../../assets/js/alertify.js"></script>
+    <script src="../../assets/js/alertify.min.js"></script>
     
 </body>
 </html>

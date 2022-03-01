@@ -1,9 +1,9 @@
 <?php  
 
     session_start();
-    if ($_SESSION['occupancy_num']) {
+    if ($_SESSION['occu_id']) {
         require '../connector/connect.php';
-        $id = $_SESSION['occupancy_num'];
+        $id = $_SESSION['occu_id'];
 
         $search_row = "SELECT *from tbl_service_type JOIN tbl_client_info ON tbl_service_type.tbl_info_fk = tbl_client_info.client_info_id WHERE tbl_service_id= '$id'";
         $result = mysqli_query($conn,$search_row);
