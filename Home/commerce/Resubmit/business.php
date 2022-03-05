@@ -1,10 +1,9 @@
 <?php  
 
     session_start();
-    if ($_SESSION['occu_id']) {
+    if ($_SESSION['business_id']) {
         require '../../connector/connect.php';
-        $id = $_SESSION['occu_id'];
-
+        $id = $_SESSION['business_id'];
         $search_row = "SELECT *from tbl_service_type JOIN tbl_client_info ON tbl_service_type.tbl_info_fk = tbl_client_info.client_info_id JOIN tbl_fcca_msg ON tbl_msg_fk = tbl_service_id  WHERE tbl_service_id= '$id' order by tbl_fcca_msg.date_msg desc";
         $result = mysqli_query($conn,$search_row);
         if (mysqli_num_rows($result) > 0) {
@@ -20,6 +19,10 @@
                 Search($user_email,$user_id,$user_contact,$user_business_name,$user_name,$user_msg);
                 break;
             }
+        }
+        else{
+            header("location: ../status");
+            exit();
         }
     }
     else{
@@ -131,15 +134,15 @@
                                     <label for="" class="form-label">
                                         Receipt #:
                                     </label>
-                                    <input type="text" class="form-control" placeholder="QD3-xx-xx-xx" id="tranaction_code" required>
+                                    <input type="text" class="form-control" placeholder="QD3-xx-xx-xx" id="tranaction_code_fsec" required>
                                     <label for="" class="form-label">
                                         Name:
                                     </label>
-                                    <input type="text" class="form-control" placeholder="" id="full_name" readonly value="<?php echo $user_name ?>">
+                                    <input type="text" class="form-control" placeholder="" id="full_name_fsec" readonly value="<?php echo $user_name ?>">
                                     <label for="" class="form-label">
                                         Proxy Name:
                                     </label>
-                                    <input type="text" class="form-control" placeholder="" id="proxy">
+                                    <input type="text" class="form-control" placeholder="" id="proxy_fsec">
                                     <span class="terms"><small class="text-secondary">Optional Person(Ex: John)</small></span>
                                     <span class="terms"><small class="text-secondary">You can leave it blank</small></span>
                                     <br>
@@ -148,7 +151,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">&#8369;</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Amount" id="amount" step="0.01" required>
+                                        <input type="text" class="form-control" placeholder="Amount" id="amount_fsec" step="0.01" required>
                                     </div>
                                     <label for="" class="form-label">
                                         Upload File
@@ -161,7 +164,7 @@
                                     <br>
                                     <div class="mt-2">
                                         
-                                        <button class="btn btn-primary" id="submit" disabled onclick="occupancy_payment();" value="<?php echo $user_id; ?>">Submit</button>
+                                        <button class="btn btn-primary" id="submit" disabled onclick="business_payment();" value="<?php echo $user_id; ?>">Submit</button>
                                     <button class="btn btn-danger" id="cancel">Cancel</button>
                                     </div>
                                 </div>
@@ -203,14 +206,7 @@
     
     
     
-    <script>
-        var el = document.getElementById("wrapper");
-        var toggleButton = document.getElementById("menu-toggle");
-
-        toggleButton.onclick = function () {
-            el.classList.toggle("toggled");
-        };
-    </script>
+ 
 </body>
 
 </html>

@@ -118,7 +118,7 @@
 	font-size: 16px;
 	color: white;
 }
-.box,.report,.fsic-permit,.occupancy-permit,.fsec-permit,.chat,.account-form,.hazard,.status,.incident_modal{
+.box,.report,.fsic-permit,.occupancy-permit,.fsec-permit,.chat,.account-form,.hazard,.status,.incident_modal,.modal_img{
 	position: fixed;
 	justify-content: center;
 	align-items: center;

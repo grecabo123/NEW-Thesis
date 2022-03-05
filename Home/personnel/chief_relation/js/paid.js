@@ -17,12 +17,18 @@ $(document).ready(function() {
 				num:num,
 			},
 			success:function(response){
-				
+				$('.center_sp').addClass('bg-spin');
 				if (response == 1) {
-					alert("done")
+					setTimeout(function(){
+						$('.center_sp').removeClass('bg-spin');
+						alertify.success("Forwarded To Personnel");
+					},2000);
 				}
 				else{
-					alert("failed");
+					setTimeout(function(){
+						$('.center_sp').removeClass('bg-spin');
+						alertify.error("Something Went Wrong");
+					},2000);
 				}
 			}
 		});

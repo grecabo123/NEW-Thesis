@@ -27,7 +27,7 @@
 
 
 
-	$insert ="INSERT INTO tbl_transaction (transaction_code,name,amount,file_payment,transaction_business_fk,date_upload) VALUES('$transaction_code','$name',$amt,'$payment_file',$id_fk,NOW())";
+	$insert ="INSERT INTO tbl_transaction (transaction_code,name,amount,file_payment,transaction_business_fk,proxy_name,date_upload) VALUES('$transaction_code','$name',$amt,'$payment_file',$id_fk,'',NOW())";
 	if (mysqli_query($conn,$insert) === TRUE) {
 		
 		$update = "UPDATE tbl_service_type SET fca ='$remark',fcca='pending' WHERE tbl_service_id = $id_fk";

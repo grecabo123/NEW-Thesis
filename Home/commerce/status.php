@@ -124,8 +124,9 @@
                 </nav>
 
 
-
+                
                 <div class="m-4">
+
                     <div class="text-light">
                         <h3>Status</h3>
                     </div>
@@ -139,7 +140,7 @@
                                     <th class="text-light">FCA Status</th>
                                     <th class="text-light">FCCA Status</th>
                                     <th class="text-light">FSES Status</th>
-                                    <th class="text-light">Admin Status</th>
+                                    <th class="text-light">FM Status</th>
                                 </tr>
                             </thead>
                             <tbody id="data_status">

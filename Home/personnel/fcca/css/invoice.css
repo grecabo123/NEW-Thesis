@@ -61,3 +61,12 @@ textarea{
     height: auto;
     padding: 20px;
 }
+#recent{
+    cursor: pointer;
+}
+
+
+.list_file li{
+  margin: 5px 10px;
+  list-style-type: none;
+}

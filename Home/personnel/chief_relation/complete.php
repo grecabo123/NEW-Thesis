@@ -117,6 +117,9 @@
             </nav>
             <div class="data-table">
               <div class="m-4">
+                <div class="text-light">
+                        <h3>Completed</h3>
+                    </div>
                     <div class="table-responsive">
                         <table class="table text-light">
                             <thead class="thead-light">
@@ -124,6 +127,7 @@
                                     <th class="text-light">Ticket #</th>
                                     <th class="text-light">Permit Type:</th>
                                     <th class="text-light">Business</th>
+                                    <th class="text-light">Action</th>
                                 </tr>
                             </thead>
                             <tbody id="tbl_complete">
@@ -149,6 +153,7 @@
     <script src="../../assets/js/function.js"></script>
     <script src="../../assets/js/date.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/complete.js"></script>
 
 
 </body>

@@ -70,6 +70,7 @@ $(document).ready(function(){
 
 	// re upload for payment
 
+	// FSIC-Occupancy Permit
 	$(document).on('click', '.occupancy_payment', function(event) {
 		event.preventDefault();
 		var id = $(this).attr('value');
@@ -88,6 +89,46 @@ $(document).ready(function(){
     		}
     	});
 	});
+
+	// FSEC-Permit
+	$(document).on('click', '.fsec_payment', function(event) {
+		event.preventDefault();
+		var id = $(this).attr('value');
+		$.ajax({
+    		url: "Compilation/search",
+    		type: "POST",
+    		data: {
+    			"fsec_pay" : true,
+    			id:id,
+    		},
+    		success:function(response){
+    			console.log(response);
+    			if (response == 1) {
+    				window.location = "Resubmit/fsec";
+    			}
+    		}
+    	});
+	});
+
+    // FSIC-Business Permit
+    $(document).on('click', '.business_payment', function(event) {
+        event.preventDefault();
+        var id = $(this).attr('value');
+        $.ajax({
+            url: "Compilation/search",
+            type: "POST",
+            data: {
+                "business_pay" : true,
+                id:id,
+            },
+            success:function(response){
+                console.log(response);
+                if (response == 1) {
+                    window.location = "Resubmit/business";
+                }
+            }
+        });
+    });
 
 });
 
@@ -120,6 +161,7 @@ function status(){
                             '</tr>'
 						);
 					}
+
 					else if (val['status_cro'] == "pending" && val['service_type'] == "FSIC-Business Permit") {
 						$('#data_status').append('<tr>'+
 								'<td class="text-light"> <span id="fk_id">'+val['queue']+'</span></td>'+
@@ -132,9 +174,22 @@ function status(){
                             '</tr>'
 						);
 					}
+
+                    else if (val['fcca'] == "lacking" && val['status_cro'] == "OK" && val['fca'] == "On Payment" && val['service_type'] == "FSIC-Business Permit") {
+                            $('#data_status').append('<tr>'+
+                                '<td class="text-light"> <span id="fk_id">'+val['queue']+'</span></td>'+
+                                '<td class="text-light">'+val['service_type']+'</td>'+
+                                '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: default;" value="'+val['tbl_service_id']+'" >'+val['status_cro']+'</a></td>'+
+                                '<td class="text-light"><a class="view_data text-info" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fca']+'</a></td>'+
+                                '<td class="text-light"><a class="business_payment text-danger" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fcca']+'</a></td>'+
+                                '<td class="text-light"><a class="view_data" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fses']+'</a></td>'+
+                                '<td class="text-light"><a class="view_data" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fire_marshal']+'</a></td>'+
+                            '</tr>'
+                            );
+                    }
 					
 					else if (val['status_cro'] == "OK" && val['service_type'] == "FSIC-Business Permit") {
-						if (val['fca'] == 'Payment' || val['fca'] == "On Payment" || val['fca'] == "Done" && val['fcca'] == "Paid" && val['fses'] == "pending") {
+						if (val['fca'] == 'Payment' || val['fca'] == "On Payment" || val['fca'] == "Done" && val['fcca'] == "Paid"  && val['fses'] == "pending") {
 							$('#data_status').append('<tr>'+
 								'<td class="text-light"> <span id="fk_id">'+val['queue']+'</span></td>'+
                                 '<td class="text-light">'+val['service_type']+'</td>'+
@@ -146,18 +201,30 @@ function status(){
                             '</tr>'
 							);
 						}
-						else if (val['fca'] == "OK" && val['fcca'] == "OK" && val['fses'] == "OK" && val['fire_marshal'] == "OK") {
-							$('#data_status').append('<tr>'+
-									'<td class="text-light"> <span id="fk_id">'+val['queue']+'</span></td>'+
-	                                '<td class="text-light">'+val['service_type']+'</td>'+
-	                                '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: default;" value="'+val['tbl_service_id']+'" >'+val['status_cro']+'</a></td>'+
-	                                '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fca']+'</a></td>'+
-	                                '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fcca']+'</a></td>'+
-	                                '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fses']+'</a></td>'+
-	                                '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fire_marshal']+'</a></td>'+
-	                            '</tr>'
-							);
-						}
+                        else if (val['fca'] == "OK" && val['fcca'] == "OK" && val['fses'] == "OK" && val['fire_marshal'] == "OK") {
+                            $('#data_status').append('<tr>'+
+                                    '<td class="text-light"> <span id="fk_id">'+val['queue']+'</span></td>'+
+                                    '<td class="text-light">'+val['service_type']+'</td>'+
+                                    '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: default;" value="'+val['tbl_service_id']+'" >'+val['status_cro']+'</a></td>'+
+                                    '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fca']+'</a></td>'+
+                                    '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fcca']+'</a></td>'+
+                                    '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fses']+'</a></td>'+
+                                    '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fire_marshal']+'</a></td>'+
+                                '</tr>'
+                            );
+                        }
+						// else if (val['fca'] == "OK" && val['fcca'] == "OK" && val['fses'] == "OK" && val['fire_marshal'] == "OK") {
+						// 	$('#data_status').append('<tr>'+
+						// 			'<td class="text-light"> <span id="fk_id">'+val['queue']+'</span></td>'+
+	     //                            '<td class="text-light">'+val['service_type']+'</td>'+
+	     //                            '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: default;" value="'+val['tbl_service_id']+'" >'+val['status_cro']+'</a></td>'+
+	     //                            '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fca']+'</a></td>'+
+	     //                            '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fcca']+'</a></td>'+
+	     //                            '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fses']+'</a></td>'+
+	     //                            '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fire_marshal']+'</a></td>'+
+	     //                        '</tr>'
+						// 	);
+						// }
 						
 						else{
 							$('#data_status').append('<tr>'+
@@ -199,6 +266,18 @@ function status(){
                             '</tr>'
 						);
 					}
+					else if (val['fcca'] == "lacking" && val['status_cro'] == "OK" && val['fca'] == "On Payment" && val['service_type'] == "FSEC-Permit") {
+							$('#data_status').append('<tr>'+
+								'<td class="text-light"> <span id="fk_id">'+val['queue']+'</span></td>'+
+                                '<td class="text-light">'+val['service_type']+'</td>'+
+                                '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: default;" value="'+val['tbl_service_id']+'" >'+val['status_cro']+'</a></td>'+
+                                '<td class="text-light"><a class="view_data text-info" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fca']+'</a></td>'+
+                                '<td class="text-light"><a class="fsec_payment text-danger" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fcca']+'</a></td>'+
+                                '<td class="text-light"><a class="view_data" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fses']+'</a></td>'+
+                                '<td class="text-light"><a class="view_data" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fire_marshal']+'</a></td>'+
+                            '</tr>'
+							);
+					}
 					else if (val['status_cro'] == "OK" && val['service_type'] == "FSEC-Permit") {
 						if (val['fca'] == 'Payment' || val['fca'] == "On Payment" || val['fca'] == "Done" || val['fca'] =="pending" && val['fcca'] == "Paid" && val['fses'] == "pending") {
 							$('#data_status').append('<tr>'+
@@ -237,7 +316,9 @@ function status(){
                             '</tr>'
 							);
 						}
+					
 					}
+					
 
 
 					// fsic occupancy
@@ -265,6 +346,18 @@ function status(){
                             '</tr>'
 						);
 					}
+					else if (val['fcca'] == "lacking" && val['status_cro'] == "OK" && val['fca'] == "On Payment" && val['service_type'] == "FSIC-Occupancy Permit") {
+							$('#data_status').append('<tr>'+
+								'<td class="text-light"> <span id="fk_id">'+val['queue']+'</span></td>'+
+                                '<td class="text-light">'+val['service_type']+'</td>'+
+                                '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: default;" value="'+val['tbl_service_id']+'" >'+val['status_cro']+'</a></td>'+
+                                '<td class="text-light"><a class="view_data text-info" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fca']+'</a></td>'+
+                                '<td class="text-light"><a class="occupancy_payment text-danger" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fcca']+'</a></td>'+
+                                '<td class="text-light"><a class="view_data" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fses']+'</a></td>'+
+                                '<td class="text-light"><a class="view_data" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fire_marshal']+'</a></td>'+
+                            '</tr>'
+							);
+					}
 					else if (val['status_cro'] == "OK" && val['service_type'] == "FSIC-Occupancy Permit") {
 						if (val['fca'] == 'Payment' || val['fca'] == "On Payment" || val['fca'] == "Done" || val['fca'] =="pending" && val['fcca'] == "Paid" || val['fcca'] == "pending" && val['fses'] == "pending") {
 							$('#data_status').append('<tr>'+
@@ -272,7 +365,7 @@ function status(){
                                 '<td class="text-light">'+val['service_type']+'</td>'+
                                 '<td class="text-light"><a class="view_data text-success fw-bold" style="text-decoration: none; cursor: default;" value="'+val['tbl_service_id']+'" >'+val['status_cro']+'</a></td>'+
                                 '<td class="text-light"><a class="view_data text-info" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fca']+'</a></td>'+
-                                '<td class="text-light"><a class="occupancy_payment text-danger" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fcca']+'</a></td>'+
+                                '<td class="text-light"><a class="text-info" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fcca']+'</a></td>'+
                                 '<td class="text-light"><a class="view_data" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fses']+'</a></td>'+
                                 '<td class="text-light"><a class="view_data" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_service_id']+'" >'+val['fire_marshal']+'</a></td>'+
                             '</tr>'
@@ -290,7 +383,6 @@ function status(){
 	                            '</tr>'
 							);
 						}
-						
 						else{
 							$('#data_status').append('<tr>'+
 								'<td class="text-light"> <span id="fk_id">'+val['queue']+'</span></td>'+

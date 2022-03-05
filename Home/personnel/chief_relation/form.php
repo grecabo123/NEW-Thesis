@@ -251,7 +251,7 @@
                     <div class="modal-footer">
                       <div class="col-md-12" class="form-label">
                               <button class="btn btn-primary" id="approve">Approved</button>
-                              <button class="btn btn-danger" id="lack">Return/Lack of Requirements</button>
+                              <button class="btn btn-danger" id="msg_modal">Return/Lack of Requirements</button>
                           </div>
                     </div>
                 </div>
@@ -446,6 +446,33 @@
 
 
         </div>
+
+
+
+        <div class="modal_img">
+                <div class="container">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Message</h5>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-group">
+                            <div class="mb-1">
+                                <textarea name="" id="lacking_msg" cols="5" rows="5" class="form-control" style="resize: none;" placeholder="Write a Message"></textarea>
+                            </div>
+                            
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" onclick="modal_img_close();">Close</button>
+                        <button type="button" class="btn btn-success" id="lack">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            </div>
 
 
 

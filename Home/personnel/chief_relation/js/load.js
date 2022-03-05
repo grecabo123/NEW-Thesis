@@ -135,9 +135,17 @@ $(document).ready(function(){
 
 	// Return
 
-	// fsic
+	// fsic modal
+	$('#msg_modal').click(function(event) {
+
+		$('.modal_img').addClass('bg-active');
+	});
+
+	// fsic proccess
 	$('#lack').click(function(event) {
 		var num = $(this).attr('value');
+
+		var msg = $('#lacking_msg').prop('value');
 		
 		$.ajax({
 			url: "update",
@@ -145,10 +153,16 @@ $(document).ready(function(){
 			data: {
 				"fsic_lack" : true,
 				num:num,
+				msg:msg,
 			},
 			success:function(response){
+				$('.modal_img').removeClass('bg-active');
 				$('.center_sp').addClass('bg-spin');
 				if (response == 1) {
+					setTimeout(function(){
+						$('#lacking_msg').val('');
+						$('.center_sp').removeClass('bg-spin');
+					},1500);
 					setTimeout(function(){
 						$('.center_sp').removeClass('bg-spin');
 						$('.data').css('display', 'none');
@@ -429,3 +443,6 @@ function Search(){
 	});
 }
 
+function modal_img_close(){
+	$('.modal_img').removeClass('bg-active');
+}

@@ -4,7 +4,7 @@
     if ($_SESSION['fsec_num']) {
         require '../connector/connect.php';
         $id = $_SESSION['fsec_num'];
-        $search_row = "SELECT *from tbl_service_type JOIN tbl_client_info ON tbl_service_type.tbl_info_fk = tbl_client_info.client_info_id WHERE tbl_service_id= '$id'";
+        $search_row = "SELECT *from tbl_service_type JOIN tbl_client_info ON tbl_service_type.tbl_info_fk = tbl_client_info.client_info_id JOIN tbl_cro_msg ON tbl_cro_msg_fk = tbl_service_id WHERE tbl_service_id= $id order by date_msg DESC";
         $result = mysqli_query($conn,$search_row);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -13,8 +13,9 @@
                 $user_business_name = $row['business_name'];
                 $user_name = $row['business_owner'];
                 $user_contact = $row['contact_number'];
+                $user_msg = $row['message'];
                 // $user_adr = $row['address'];
-                Search($user_email,$user_id,$user_contact,$user_business_name,$user_name);
+                Search($user_email,$user_id,$user_contact,$user_business_name,$user_name,$user_msg);
                 break;
             }
         }
@@ -25,7 +26,7 @@
     }
 ?>
 <?php
-     function Search($user_email,$user_id,$user_contact,$user_business_name,$user_name){
+     function Search($user_email,$user_id,$user_contact,$user_business_name,$user_name,$user_msg){
         ?>
 
 <!DOCTYPE html>
@@ -123,6 +124,7 @@
                                 <div class="col-md-12">
                                     <span class="text-dark fw-bold">Note: <p class="text-secondary">You must send a legit file that will evaluate the personnel. If you send a dummy file your request will be deleted</p></span>
                                 </div>
+                                <textarea name="" id="" cols="5" rows="5" class="form-control" readonly style="resize: none;"><?php echo $user_msg; ?></textarea>
                                 </div>
                             </div>
                            <div class="modal-body">

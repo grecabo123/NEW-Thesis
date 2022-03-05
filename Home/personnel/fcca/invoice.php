@@ -11,12 +11,17 @@
     <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="../../assets/css/alertify.css" rel="stylesheet">
+    <link href="../../assets/css/user.css" rel="stylesheet">
+    <link href="../../assets/css/market.css" rel="stylesheet">
     <link href="../../assets/css/alertify.min.css" rel="stylesheet">
     <link href="../../assets/img/Icon/logo.png" rel="icon">
     <link rel="stylesheet" href="css/invoice.css">
     <title>Fire Code Collecting Agent</title>
 </head>
 <body>
+
+    
+
 
     <?php  
 
@@ -27,7 +32,7 @@
         require '../../connector/connect.php';
         $id = $_SESSION['info'];
 
-        
+        // echo $id;
 
         $all = "SELECT client.business_name,client.email,client.contact_number,service.queue,service.service_type,service.tbl_service_id,trans.transaction_code,trans.amount,trans.file_payment,pay.total_fees from tbl_client_info as client JOIN tbl_service_type as service ON service.tbl_info_fk = client.client_info_id JOIN tbl_transaction as trans ON trans.transaction_business_fk = service.tbl_service_id JOIN tbl_payment as pay ON pay.tbl_client_fk = client.client_info_id where service.tbl_service_id = $id";
 
@@ -62,11 +67,65 @@
 
     function invoice($id,$business_name,$ticket,$permit,$email,$contact,$fee,$code,$amt,$file,$service_id){
         ?>
-            <div class="container-fluid mt-100 mb-100">
-    <div id="ui-view">
-        <div>
+
+
+        <div class="d-flex" id="wrapper">
+       
+        <!-- Sidebar -->
+        <div class="bg-dark-color" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail rounded-circle" width="100" height="100"> <br><span class="text-muted"><span style="font-size: 15px;">Fire Code Collecting Agent</span><br> </span></span></span></div>
+            <div class="list-group list-group-flush my-3">
+               <center><span class="text-light fw-bold">Recent Files</span></center>
+               <br>
+               <div class="list_file">
+                   <ul class="list-group list_file_load">
+                       
+                   </ul>
+               </div>
+            </div>
+        </div>
+        <!-- end of sidebar -->
+
+        <!-- page-content -->
+            <div id="page-content-wrapper">
+                <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-align-left text-muted fs-4 me-3" id="menu-toggle"></i>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                         <!-- <button class="btn btn-secondary"><i class="fas fa-caret-left"></i></button> -->
+                    </button>
+
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <div id="date" style="color: white; font-size: 17px;">
+                                    <button class="btn btn-secondary" onclick="back_btn();"><i class="fas fa-caret-left"></i> Back</button>
+                                    <button class="btn btn-secondary" onclick="refresh();" ><i class="fas fa-undo"></i> Refresh</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="container-fluid">
+                
             <div class="card">
-                <div class="card-header bg-success"> <img src="../../assets/img/icon/logo.png" alt="" class="img-fluid text-light" width="50" height="50"> Ticket #: <strong><?php echo $ticket; ?></strong>
+                <div class="card-header bg-success">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                            <img src="../../assets/img/icon/logo.png" alt="" class="img-fluid text-light" width="50" height="50"> Ticket #: <strong><?php echo $ticket; ?></strong>
+                        </div>
+                         
+                        </div>
+                    </div>
+                    
                 </div>
                 <div class="card-body">
                     <div class="row mb-4">
@@ -201,6 +260,46 @@
     </div>
 
 </div>
+
+            </div>
+
+
+            <div class="modal_img">
+                <div class="container">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <span class="fw-bold">File Name:<h5 class="modal-title" id="file_name"></h5></span>
+                        
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-group">
+                            <div class="mb-1">
+                                <label for="" class="form-label">
+                                Transaction Code
+                            </label>
+                            <input type="text" readonly id="transaction" class="form-control">
+                            </div>
+                            <div class="mb-1">
+                                <label for="" class="form-label">
+                                Proxy Name
+                            </label>
+                            <input type="text" readonly id="proxy" class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <img src="" alt="Image" id="file_fetch" class="img-fluid" width="300" height="400">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="modal_img_close();">Close</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            </div>
+
+
+
         <?php
     }
 
@@ -217,6 +316,8 @@
     <script src="js/invoice.js"></script>
     <script src="../../assets/js/alertify.js"></script>
     <script src="../../assets/js/alertify.min.js"></script>
+    <script src="../../assets/js/function.js"></script>
+
     
 </body>
 </html>

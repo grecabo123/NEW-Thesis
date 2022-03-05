@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2022 at 04:49 PM
+-- Generation Time: Mar 05, 2022 at 06:46 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -378,7 +378,30 @@ INSERT INTO `tbl_client_info` (`client_info_id`, `business_owner`, `email`, `bus
 (2, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1),
 (3, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1),
 (4, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1),
-(5, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1);
+(5, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1),
+(6, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_cro_msg`
+--
+
+CREATE TABLE `tbl_cro_msg` (
+  `tbl_cro_id` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `tbl_cro_msg_fk` int(11) NOT NULL,
+  `date_msg` datetime(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_cro_msg`
+--
+
+INSERT INTO `tbl_cro_msg` (`tbl_cro_id`, `message`, `tbl_cro_msg_fk`, `date_msg`) VALUES
+(1, 'Kulang kag papel', 6, '2022-03-06 01:21:04.000000'),
+(2, 'Kulang kag isa ka papel', 6, '2022-03-06 01:22:28.000000'),
+(3, 'La', 6, '2022-03-06 01:24:23.000000');
 
 -- --------------------------------------------------------
 
@@ -405,7 +428,12 @@ INSERT INTO `tbl_fcca_msg` (`tbl_msg_id`, `message`, `tbl_msg_fk`, `date_msg`) V
 (5, 'awdawdawda', 5, '2022-03-01 22:55:40.000000'),
 (6, 'dwaadadwad 143', 5, '2022-03-01 23:01:58.000000'),
 (7, 'awdawdawd', 5, '2022-03-01 23:02:58.000000'),
-(8, 'Kulang kag 300 pesos', 5, '2022-03-01 23:06:14.000000');
+(8, 'Kulang kag 300 pesos', 5, '2022-03-01 23:06:14.000000'),
+(9, 'kulang kag 150', 5, '2022-03-05 06:40:17.000000'),
+(10, 'Kulang kag 90', 5, '2022-03-05 14:35:24.000000'),
+(11, 'Good Day Kulang kag 140.. ', 5, '2022-03-05 15:00:42.000000'),
+(13, 'Kulang kag 120', 4, '2022-03-05 15:28:09.000000'),
+(14, 'Kulang kag  50php Ma\'am/Sir', 2, '2022-03-05 20:26:15.000000');
 
 -- --------------------------------------------------------
 
@@ -556,8 +584,9 @@ CREATE TABLE `tbl_service_type` (
 INSERT INTO `tbl_service_type` (`tbl_service_id`, `service_type`, `business_permit`, `insurance_policy`, `bfp_or`, `endorsement`, `building_completion`, `electrical_completion`, `fsec_certificate`, `building_specification`, `bill_material`, `voltage_circuit`, `reference_id`, `queue`, `date_register`, `status_cro`, `fca`, `fcca`, `fses`, `fire_marshal`, `tbl_info_fk`, `tbl_bs_fk`) VALUES
 (2, 'FSIC-Business Permit', 'vlera.png', 'vlera.png', 'dps.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '878621b092174a7f', 245362, '2022-02-27 19:58:59.000000', 'OK', 'OK', 'OK', 'OK', 'OK', 2, 1),
 (3, 'FSIC-Business Permit', 'Ezgold.png', 'Ezgold.png', 'Ezgold.png', '', '', '', '', '', '', '', '229621b154a81c36', 555502, '2022-02-27 20:27:19.000000', 'OK', 'OK', 'OK', 'OK', 'OK', 3, 1),
-(4, 'FSEC-Permit', NULL, NULL, 'vlera.png', NULL, NULL, NULL, NULL, 'vlera.png', 'vlera.png', 'vlera.png', '359621b69d987839', 953185, '2022-02-27 20:26:39.000000', 'OK', 'OK', 'OK', 'OK', 'OK', 4, 1),
-(5, 'FSIC-Occupancy Permit', NULL, NULL, 'dps.png', 'dps.png', 'dps.png', 'dps.png', 'dps.png', NULL, NULL, NULL, '667621b6e900e4ba', 690950, '2022-03-01 19:35:09.000000', 'OK', 'On Payment', 'lacking', '', '', 5, 1);
+(4, 'FSEC-Permit', NULL, NULL, 'vlera.png', NULL, NULL, NULL, NULL, 'vlera.png', 'vlera.png', 'vlera.png', '359621b69d987839', 953185, '2022-02-27 20:26:39.000000', 'pending', ' ', ' ', ' ', ' ', 4, 1),
+(5, 'FSIC-Occupancy Permit', NULL, NULL, 'dps.png', 'dps.png', 'dps.png', 'dps.png', 'dps.png', NULL, NULL, NULL, '667621b6e900e4ba', 690950, '2022-03-01 19:35:09.000000', 'OK', 'On Payment', 'lacking', ' ', ' ', 5, 1),
+(6, 'FSIC-Business Permit', 'plead.png', 'plead.png', 'plead.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '3006221f73a97e1b', 153193, '2022-03-06 00:52:59.000000', 'lacking', '', '', '', '', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -572,6 +601,7 @@ CREATE TABLE `tbl_transaction` (
   `amount` double(10,2) NOT NULL,
   `file_payment` text NOT NULL,
   `transaction_business_fk` int(11) NOT NULL,
+  `proxy_name` text NOT NULL,
   `date_upload` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
@@ -579,12 +609,15 @@ CREATE TABLE `tbl_transaction` (
 -- Dumping data for table `tbl_transaction`
 --
 
-INSERT INTO `tbl_transaction` (`tbl_transaction_id`, `transaction_code`, `name`, `amount`, `file_payment`, `transaction_business_fk`, `date_upload`) VALUES
-(2, 'Qdw', '', 500.00, 'globe.png', 2, '2022-02-27 14:15:22.000000'),
-(3, 'AWJDAWD', '', 500.00, 'dps.png', 3, '2022-02-27 14:25:24.000000'),
-(4, 'akjwdbgawiudgawuid', '', 500.00, 'dps.png', 4, '2022-02-27 20:35:10.000000'),
-(5, 'aklwjdnbajwdbahvdbawhdvawdvaw21324', '', 500.00, 'dps.png', 4, '2022-02-27 20:44:57.000000'),
-(6, 'poawhdioawhdoiawhdioahwd', '', 500.00, 'dps.png', 5, '2022-03-01 19:53:04.000000');
+INSERT INTO `tbl_transaction` (`tbl_transaction_id`, `transaction_code`, `name`, `amount`, `file_payment`, `transaction_business_fk`, `proxy_name`, `date_upload`) VALUES
+(2, 'Qdw', '', 500.00, 'globe.png', 2, '', '2022-02-27 14:15:22.000000'),
+(3, 'AWJDAWD', '', 500.00, 'dps.png', 3, '', '2022-02-27 14:25:24.000000'),
+(4, 'akjwdbgawiudgawuid', '', 500.00, 'dps.png', 4, '', '2022-02-27 20:35:10.000000'),
+(5, 'aklwjdnbajwdbahvdbawhdvawdvaw21324', '', 500.00, 'dps.png', 4, '', '2022-02-27 20:44:57.000000'),
+(10, 'jahsdawd', 'Georgie Recabo', 50.00, 'pleading-face.png', 5, '', '2022-03-05 15:01:07.000000'),
+(11, 'ADW-32a-AWD-awd', 'Georgie Recabo', 300.00, 'plead.png', 4, 'geor', '2022-03-05 19:52:25.000000'),
+(12, 'AWDAWD', 'Georgie Recabo', 300.00, 'plead.png', 2, 'awdbawd', '2022-03-05 20:24:45.000000'),
+(13, 'DAW-awd', 'Georgie Recabo', 200.00, '12432.png', 2, 'Killa', '2022-03-05 20:26:52.000000');
 
 -- --------------------------------------------------------
 
@@ -656,6 +689,13 @@ ALTER TABLE `tbl_business`
 ALTER TABLE `tbl_client_info`
   ADD PRIMARY KEY (`client_info_id`),
   ADD KEY `business_fk` (`business_fk`);
+
+--
+-- Indexes for table `tbl_cro_msg`
+--
+ALTER TABLE `tbl_cro_msg`
+  ADD PRIMARY KEY (`tbl_cro_id`),
+  ADD KEY `tbl_cro_msg_fk` (`tbl_cro_msg_fk`);
 
 --
 -- Indexes for table `tbl_fcca_msg`
@@ -750,13 +790,19 @@ ALTER TABLE `tbl_business`
 -- AUTO_INCREMENT for table `tbl_client_info`
 --
 ALTER TABLE `tbl_client_info`
-  MODIFY `client_info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `client_info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tbl_cro_msg`
+--
+ALTER TABLE `tbl_cro_msg`
+  MODIFY `tbl_cro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_fcca_msg`
 --
 ALTER TABLE `tbl_fcca_msg`
-  MODIFY `tbl_msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `tbl_msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbl_payment`
@@ -786,13 +832,13 @@ ALTER TABLE `tbl_report_account`
 -- AUTO_INCREMENT for table `tbl_service_type`
 --
 ALTER TABLE `tbl_service_type`
-  MODIFY `tbl_service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `tbl_service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_transaction`
 --
 ALTER TABLE `tbl_transaction`
-  MODIFY `tbl_transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `tbl_transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
@@ -827,6 +873,12 @@ ALTER TABLE `tbl_approved`
 --
 ALTER TABLE `tbl_client_info`
   ADD CONSTRAINT `tbl_client_info_ibfk_1` FOREIGN KEY (`business_fk`) REFERENCES `tbl_business` (`tbl_business_id`);
+
+--
+-- Constraints for table `tbl_cro_msg`
+--
+ALTER TABLE `tbl_cro_msg`
+  ADD CONSTRAINT `tbl_cro_msg_ibfk_1` FOREIGN KEY (`tbl_cro_msg_fk`) REFERENCES `tbl_service_type` (`tbl_service_id`);
 
 --
 -- Constraints for table `tbl_fcca_msg`

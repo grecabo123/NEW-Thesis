@@ -130,7 +130,7 @@
                                     <th class="text-light">Ticket #</th>
                                     <th class="text-light">Permit Type:</th>
                                     <th class="text-light">Name of Business</th>
-                                    <th class="text-light">Process</th>
+                                    <th class="text-light">Action</th>
                                 </tr>
                             </thead>
                             <tbody id="table_paid">
@@ -143,7 +143,9 @@
 
 
 
-
+            <div class="center_sp">
+                    <div id="loading"></div>
+                </div>
 
 
         <!-- <div class="data"> -->

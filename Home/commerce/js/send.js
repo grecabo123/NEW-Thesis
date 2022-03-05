@@ -387,6 +387,18 @@ $(document).ready(function(){
 
 
 
+	// resubmit for patyment
+	$('#upload_file').change(function(event) {
+
+		var occu_pay = $('#upload_file').val().split('.').pop().toLowerCase();
+		console.log(occu_pay);
+		if($('#upload_file')[0].files.length === 1 && $.inArray(occu_pay,['png','jpeg','jpg','pdf','xlsx','doc','docx','bmp']) == 0 ) {
+			$('#submit').attr('disabled', false);
+		}
+		else{
+			$('#submit').attr('disabled', true);
+		}
+	});
 
 
 
@@ -874,5 +886,215 @@ function update_occu(){
 
 		});
 	}
+}
 
+function occupancy_payment(){
+	var num = $('#submit').attr('value');
+
+	var payment_file = $('#upload_file')[0].files[0];
+		var transaction_code = $('#tranaction_code').val();
+		var name = $('#full_name').val();
+		var amt = $('#amount').val();
+		var id_fk = $('#pk_id').val();
+		var proxy = $('#proxy').val();
+
+
+
+		var form_data = new FormData();
+
+		if ($('#upload_file')[0].files.length === 1) {
+
+			// file for payment
+			form_data.append('payment',payment_file);
+
+			// data for fields
+			form_data.append('transaction_code',transaction_code);
+			form_data.append('amt',amt);
+			form_data.append('name',name);
+			form_data.append('num',num);
+			form_data.append('proxy',proxy);
+
+			$.ajax({
+				url: "update_lack",
+				type: "POST",
+				datatype: "script",
+				cache: false,
+				contentType: false,
+				processData: false,
+				data: form_data,
+
+
+				success:function(response){
+					console.log(response);
+					if (response == 2) {
+						
+						$('#tranaction_code').val('');
+						$('#full_name').val('');
+						$('#amount').val('');
+						$('#pk_id').val('');
+						$('.payment').removeClass('bg-active')
+						$('.center_sp').addClass('bg-spin');
+						setTimeout(function(){
+							$('.center_sp').removeClass('bg-spin');
+							alertify.success('Your payment has been sent');
+						},1500);
+						setTimeout(function(){
+							window.location="../status";
+						},2500);
+
+					}
+					else if (response == 1) {
+						console.log("1");
+					}
+					else if (response == 0) {
+						console.log("0");
+					}
+				}
+
+			});
+		}
+		else{
+			console.log("awd");
+		}
+}
+
+
+function fsec_payment(){
+	var num = $('#submit').attr('value');
+		var payment_file = $('#upload_file')[0].files[0];
+		var transaction_code = $('#tranaction_code_fsec').val();
+		var name = $('#full_name_fsec').val();
+		var amt = $('#amount_fsec').val();
+		var id_fk = $('#pk_id').val();
+		var proxy = $('#proxy_fsec').val();
+
+		console.log(num);
+
+
+
+		var form_data = new FormData();
+
+		if ($('#upload_file')[0].files.length === 1) {
+
+			// file for payment
+			form_data.append('payment',payment_file);
+
+			// data for fields
+			form_data.append('transaction_code',transaction_code);
+			form_data.append('amt',amt);
+			form_data.append('name',name);
+			form_data.append('num',num);
+			form_data.append('proxy',proxy);
+
+			$.ajax({
+				url: "update_fsec",
+				type: "POST",
+				datatype: "script",
+				cache: false,
+				contentType: false,
+				processData: false,
+				data: form_data,
+
+
+				success:function(response){
+					
+					if (response == 2) {
+						
+						$('#tranaction_code_fsec').val('');
+						$('#full_name_fsec').val('');
+						$('#amount_fsec').val('');
+						$('#proxy_fsec').val('');
+						
+						setTimeout(function(){
+							$('.center_sp').removeClass('bg-spin');
+							alertify.success('Your payment has been sent');
+						},1500);
+						setTimeout(function(){
+							window.location="../status";
+						},2500);
+
+					}
+					else if (response == 1) {
+						window.location="fsec";
+					}
+					else if (response == 0) {
+						window.location="fsec";
+					}
+				}
+
+			});
+		}
+		else{
+			console.log("awd");
+		}
+}
+
+function business_payment(){
+	var num = $('#submit').attr('value');
+		var payment_file = $('#upload_file')[0].files[0];
+		var transaction_code = $('#tranaction_code_fsec').val();
+		var name = $('#full_name_fsec').val();
+		var amt = $('#amount_fsec').val();
+		var id_fk = $('#pk_id').val();
+		var proxy = $('#proxy_fsec').val();
+
+		
+
+
+
+		var form_data = new FormData();
+
+		if ($('#upload_file')[0].files.length === 1) {
+
+			// file for payment
+			form_data.append('payment',payment_file);
+
+			// data for fields
+			form_data.append('transaction_code',transaction_code);
+			form_data.append('amt',amt);
+			form_data.append('name',name);
+			form_data.append('num',num);
+			form_data.append('proxy',proxy);
+
+			$.ajax({
+				url: "update_business",
+				type: "POST",
+				datatype: "script",
+				cache: false,
+				contentType: false,
+				processData: false,
+				data: form_data,
+
+
+				success:function(response){
+					console.log(response);
+					if (response == 2) {
+						
+						$('#tranaction_code_fsec').val('');
+						$('#full_name_fsec').val('');
+						$('#amount_fsec').val('');
+						$('#proxy_fsec').val('');
+						
+						setTimeout(function(){
+							$('.center_sp').removeClass('bg-spin');
+							alertify.success('Your payment has been sent');
+						},1500);
+						setTimeout(function(){
+							window.location="../status";
+						},2500);
+
+					}
+					else if (response == 1) {
+						window.location="fsec";
+					}
+					else if (response == 0) {
+						window.location="fsec";
+					}
+				}
+
+			});
+		}
+		else{
+			console.log("awd");
+		}
 }
