@@ -50,7 +50,7 @@
 	$sql = "INSERT INTO tbl_client_info(business_owner,email,business_name,contact_number,business_fk) VALUES('$name_person','$email','$business','$contact',$fk)";
 	if (mysqli_query($conn,$sql) === TRUE) {
 		$fk_id = mysqli_insert_id($conn);
-		$data = "INSERT INTO tbl_service_type(service_type,business_permit,insurance_policy,bfp_or,endorsement,building_completion,electrical_completion,fsec_certificate,building_specification,bill_material,voltage_circuit,reference_id,queue,date_register,status_cro,fca,fcca,fses,fire_marshal,tbl_info_fk,tbl_bs_fk) VALUES ('$permit',null,null,'$permit_num4','$permit_num1','$permit_num2','$permit_num3','$permit_num5',null,null,null,'$reference_id',$queue,NOW(),'$remark','','','','',$fk_id,$fk)";
+		$data = "INSERT INTO tbl_service_type(service_type,business_permit,insurance_policy,bfp_or,endorsement,building_completion,electrical_completion,fsec_certificate,building_specification,bill_material,voltage_circuit,reference_id,queue,date_register,status_cro,fca,fcca,inspection,fses,fire_marshal,tbl_info_fk,tbl_bs_fk) VALUES ('$permit',null,null,'$permit_num4','$permit_num1','$permit_num2','$permit_num3','$permit_num5',null,null,null,'$reference_id',$queue,NOW(),'$remark','','','','','',$fk_id,$fk)";
 
 		if (mysqli_query($conn,$data) === TRUE) {
 			echo "Yes";

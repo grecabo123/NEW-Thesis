@@ -136,7 +136,7 @@
 			<button type="submit" class="btn btn-primary w-100" name="login">Login</button>
 		</div>
 		<div class="clearfix">
-            <a href="forgot.php" class="float-right text-success">Forgot Password?</a>
+            <a href="forgot.php" class="float-right text-secondary">Forgot Password?</a>
         </div>  
         <!-- <div class="or-seperator"><i>or</i></div>  -->
     </form>

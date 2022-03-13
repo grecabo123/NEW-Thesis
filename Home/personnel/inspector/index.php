@@ -57,7 +57,7 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-dark-color" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail" width="100" height="100"><br><span class="text-muted"><span style="font-size: 15px;">Chief Relation Officer </span><span class="text-muted" style="font-size: 12px; vertical-align: middle;">  <br><?php echo $fname." ".$lname."<br>"."Inspector"; ?></span></span></div>
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail" width="100" height="100"><br><span class="text-muted"><span style="font-size: 15px;">Chief Inspector </span><span class="text-muted" style="font-size: 12px; vertical-align: middle;">  <br><?php echo $fname." ".$lname."<br>"."Inspector"; ?></span></span></div>
             <div class="list-group list-group-flush my-3">
                 <a href="index" class="list-group-item list-group-item-action bg-transparent second-text fw-bold text-primary"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
@@ -68,13 +68,13 @@
                 <div class="container-fluid dropdown">
                     <!-- <div class="list-group-item bg-transparent list"> -->
                         <li class="list-group text-justify list-group-item bg-transparent list">
-                            <a href="form" class="bg-transparent second-text fw-bold">Request Form</a>
+                            <a href="inspection" class="bg-transparent second-text fw-bold"><i class="fas fa-file"></i> Inspection</a>
                         </li>
                         <li class="list-group text-justify list-group-item bg-transparent list">
-                            <a href="complete" class="bg-transparent second-text fw-bold">Completed Form</a>
+                            <a href="record" class="bg-transparent second-text fw-bold"><i class="fas fa-file-archive"></i>  Recorded Form</a>
                         </li>
                         <li class="list-group text-left list-group-item bg-transparent list">
-                            <a href="paid" class="bg-transparent second-text fw-bold">FCCA Paid</a>
+                            <a href="pending" class="bg-transparent second-text fw-bold"> <i class="fas fa-file-invoice"></i> Pending Inspection</a>
                         </li>
                     <!-- </div> -->
                 </div>

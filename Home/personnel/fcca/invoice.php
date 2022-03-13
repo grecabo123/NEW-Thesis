@@ -155,8 +155,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="center">1</td>
-                                    <td class="left"><?php echo $permit; ?></td>
+                                    <td class="center"><?php echo $service_id; ?></td>
+                                    <td class="left" id="permit"><?php echo $permit; ?></td>
                                     <td class="left"> <?php echo $business_name; ?> </td>
                                     <td class="left"><a href="../../commerce/Payment/<?php echo $file; ?>" class="btn btn-sm btn-primary">View</a></td>
                                     <td class="right"><span>&#8369;</span><?php echo $amt; ?></td>

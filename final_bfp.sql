@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2022 at 06:46 PM
+-- Generation Time: Mar 13, 2022 at 05:00 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -288,9 +288,9 @@ CREATE TABLE `tbl_address` (
 --
 
 INSERT INTO `tbl_address` (`tbl_address_id`, `brgy`, `city`, `tbl_user_fk`) VALUES
-(1, NULL, NULL, 1),
-(2, NULL, NULL, 2),
-(3, 'Banza', 'Butuan City', 3);
+(1, '', NULL, 1),
+(2, '', NULL, 2),
+(3, '', 'Butuan City', 3);
 
 -- --------------------------------------------------------
 
@@ -325,7 +325,15 @@ INSERT INTO `tbl_approved` (`approve_id`, `name_person`, `office`, `approve_clie
 (12, 'James Kiel', 'Chief Relation Officer', 5, '2022-03-01 19:41:04.000000'),
 (13, 'James Kiel', 'Chief Relation Officer', 5, '2022-03-01 19:50:25.000000'),
 (14, 'James Kiel', 'Chief Relation Officer', 5, '2022-03-01 19:51:28.000000'),
-(15, 'James Kiel', 'Chief Relation Officer', 5, '2022-03-01 19:52:44.000000');
+(15, 'James Kiel', 'Chief Relation Officer', 5, '2022-03-01 19:52:44.000000'),
+(16, 'James Kiel', 'Chief Relation Officer', 4, '2022-03-07 14:08:48.000000'),
+(17, 'kia kdwi', 'FCA', 4, '2022-03-07 14:09:16.000000'),
+(18, 'James Kiel', 'Chief Relation Officer', 7, '2022-03-08 00:35:08.000000'),
+(19, 'kia kdwi', 'FCA', 7, '2022-03-08 00:35:56.000000'),
+(20, 'James Kiel', 'Chief Relation Officer', 8, '2022-03-08 00:45:49.000000'),
+(21, 'kia kdwi', 'FCA', 8, '2022-03-08 00:46:20.000000'),
+(22, 'James Kiel', 'Chief Relation Officer', 9, '2022-03-08 00:48:12.000000'),
+(23, 'kia kdwi', 'FCA', 9, '2022-03-08 00:48:49.000000');
 
 -- --------------------------------------------------------
 
@@ -379,7 +387,12 @@ INSERT INTO `tbl_client_info` (`client_info_id`, `business_owner`, `email`, `bus
 (3, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1),
 (4, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1),
 (5, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1),
-(6, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1);
+(6, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1),
+(7, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1),
+(8, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1),
+(9, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1),
+(10, '', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1),
+(11, 'Georgie Recabo', 'artamay1@gmail.com', 'Jollibee', '09289312876', 1);
 
 -- --------------------------------------------------------
 
@@ -401,7 +414,17 @@ CREATE TABLE `tbl_cro_msg` (
 INSERT INTO `tbl_cro_msg` (`tbl_cro_id`, `message`, `tbl_cro_msg_fk`, `date_msg`) VALUES
 (1, 'Kulang kag papel', 6, '2022-03-06 01:21:04.000000'),
 (2, 'Kulang kag isa ka papel', 6, '2022-03-06 01:22:28.000000'),
-(3, 'La', 6, '2022-03-06 01:24:23.000000');
+(3, 'La', 6, '2022-03-06 01:24:23.000000'),
+(4, 'kulang kag isa ka document ', 6, '2022-03-06 14:33:28.000000'),
+(5, '', 4, '2022-03-06 14:56:37.000000'),
+(6, '', 4, '2022-03-06 14:57:56.000000'),
+(7, 'jemwel', 4, '2022-03-06 15:01:00.000000'),
+(8, 'printf(\"hello world\");', 5, '2022-03-06 15:16:04.000000'),
+(9, 'akwdaiwdgvawyidfawidgawiudgawiudgawiudgawiud', 6, '2022-03-06 19:20:44.000000'),
+(10, 'Kulang kag isa ka papel which is kani', 4, '2022-03-06 19:24:21.000000'),
+(11, 'kajwdbakwjdbawkdbawdbawd', 5, '2022-03-06 19:24:56.000000'),
+(12, 'paaidauwgdaywdawdhawuidghiufgiugwadta67e526321321313', 6, '2022-03-06 19:25:22.000000'),
+(13, 'Good Day,\n          I would like to inform you that your documents sent to me is not valid.. Could send more ? For Clarification.\n\n', 7, '2022-03-08 00:33:57.000000');
 
 -- --------------------------------------------------------
 
@@ -438,6 +461,34 @@ INSERT INTO `tbl_fcca_msg` (`tbl_msg_id`, `message`, `tbl_msg_fk`, `date_msg`) V
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_inspection_info`
+--
+
+CREATE TABLE `tbl_inspection_info` (
+  `tbl_inspection_id` int(11) NOT NULL,
+  `inspection_no` int(11) NOT NULL,
+  `type_buidling` text NOT NULL,
+  `date_issued` text NOT NULL,
+  `date_inspection` text NOT NULL,
+  `nature_of_ion` text NOT NULL,
+  `file_upload` text NOT NULL,
+  `inspection_order` text NOT NULL,
+  `tbl_service_fk` int(11) NOT NULL,
+  `correction_fee` text NOT NULL,
+  `date_delivered_fcca` datetime(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_inspection_info`
+--
+
+INSERT INTO `tbl_inspection_info` (`tbl_inspection_id`, `inspection_no`, `type_buidling`, `date_issued`, `date_inspection`, `nature_of_ion`, `file_upload`, `inspection_order`, `tbl_service_fk`, `correction_fee`, `date_delivered_fcca`) VALUES
+(1, 277807784, 'Business Occupancy Checklist', '', '', 'Building Under Construction', 'TheCodeMagazine.pdf', 'TheCodeMagazine.pdf', 7, 'signature1.PNG', '2022-03-08 02:00:31.000000'),
+(2, 770334466, 'Gasoline Service Station Checklist', '', '', 'Application for Business Permit', 'footnote_to_youth.pdf', '', 9, '', '2022-03-08 02:01:58.000000');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_payment`
 --
 
@@ -464,7 +515,11 @@ INSERT INTO `tbl_payment` (`tbl_payment_id`, `File_payment`, `total_fees`, `date
 (6, 'dps.png', 500.00, '2022-02-27 20:44:19.000000', '', 4, 1),
 (7, 'dps.png', 500.00, '2022-03-01 19:50:24.000000', '', 5, 1),
 (8, 'dps.png', 500.00, '2022-03-01 19:51:28.000000', '', 5, 1),
-(9, 'dps.png', 500.00, '2022-03-01 19:52:44.000000', '', 5, 1);
+(9, 'dps.png', 500.00, '2022-03-01 19:52:44.000000', '', 5, 1),
+(10, 'ruina.png', 500.00, '2022-03-07 14:09:16.000000', '', 4, 1),
+(11, 'ruina.png', 500.00, '2022-03-08 00:35:56.000000', '', 7, 1),
+(12, 'pleading-face.png', 100.00, '2022-03-08 00:46:20.000000', '', 8, 1),
+(13, 'vlera.png', 100.00, '2022-03-08 00:48:49.000000', '', 9, 1);
 
 -- --------------------------------------------------------
 
@@ -513,6 +568,7 @@ CREATE TABLE `tbl_report` (
   `Incident_type` varchar(200) DEFAULT NULL,
   `brgy` varchar(200) NOT NULL,
   `landmark` varchar(200) NOT NULL,
+  `description` text NOT NULL,
   `date_report` datetime(6) NOT NULL,
   `status` text DEFAULT NULL,
   `account_type` text DEFAULT NULL,
@@ -523,9 +579,17 @@ CREATE TABLE `tbl_report` (
 -- Dumping data for table `tbl_report`
 --
 
-INSERT INTO `tbl_report` (`tbl_report_id`, `type_of_report`, `Incident_type`, `brgy`, `landmark`, `date_report`, `status`, `account_type`, `report_account_fk`) VALUES
-(1, 'Incident', 'Medical', 'Ambago', 'Diri', '2022-02-20 20:34:04.000000', 'View', 'Business', 1),
-(2, 'Incident', 'Rescue', 'Amparo', 'awdaiwhdadad', '2022-02-20 20:43:02.000000', 'View', 'User', 2);
+INSERT INTO `tbl_report` (`tbl_report_id`, `type_of_report`, `Incident_type`, `brgy`, `landmark`, `description`, `date_report`, `status`, `account_type`, `report_account_fk`) VALUES
+(1, 'Incident', 'Medical', 'Ambago', 'Diri', '', '2022-02-20 20:34:04.000000', 'View', 'Business', 1),
+(2, 'Incident', 'Rescue', 'Amparo', 'awdaiwhdadad', '', '2022-02-20 20:43:02.000000', 'View', 'User', 2),
+(3, 'Incident', 'Medical', 'Baan KM 3', 'diri', 'wla', '2022-03-06 15:50:21.000000', 'View', 'Business', 3),
+(4, 'Incident', 'Fire Incident', 'Ampayon', 'awkd', 'seajdaef', '2022-03-06 16:23:47.000000', 'View', 'Business', 4),
+(5, 'Incident', 'others', 'Anticala', 'ia', 'aseuifsugfisdgfdgdfh', '2022-03-06 16:24:07.000000', 'View', 'Business', 5),
+(6, 'Hazard', NULL, 'Ambago', 'Diri', 'dawdawdawudgawdhgawdgauwdgawd', '2022-03-06 19:49:10.000000', 'View', 'Business', 6),
+(7, 'Incident', 'Fire Incident', 'Amparo', 'Diri', 'awdjawdihadhwawd', '2022-03-06 20:01:16.000000', 'View', 'User', 7),
+(8, 'Hazard', NULL, 'Ampayon', 'awdhawuidgawuid', 'auwdgaiwugdayiwdayfawdadgiaudgawidugwiue216738521e', '2022-03-06 20:01:47.000000', 'View', 'User', 8),
+(9, 'Hazard', NULL, 'Ambago', 'daw', 'awd', '2022-03-06 20:02:36.000000', 'View', 'User', 9),
+(10, 'Hazard', NULL, 'Antongalon', 'daw', 'awdawd', '2022-03-06 20:03:55.000000', 'pending', 'User', 10);
 
 -- --------------------------------------------------------
 
@@ -544,7 +608,15 @@ CREATE TABLE `tbl_report_account` (
 
 INSERT INTO `tbl_report_account` (`report_id`, `account_fk`) VALUES
 (1, 1),
-(2, 1);
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1),
+(6, 1),
+(7, 2),
+(8, 2),
+(9, 2),
+(10, 2);
 
 -- --------------------------------------------------------
 
@@ -571,6 +643,7 @@ CREATE TABLE `tbl_service_type` (
   `status_cro` text DEFAULT NULL,
   `fca` text DEFAULT NULL,
   `fcca` text DEFAULT NULL,
+  `inspection` text DEFAULT NULL,
   `fses` text DEFAULT NULL,
   `fire_marshal` text DEFAULT NULL,
   `tbl_info_fk` int(11) NOT NULL,
@@ -581,12 +654,17 @@ CREATE TABLE `tbl_service_type` (
 -- Dumping data for table `tbl_service_type`
 --
 
-INSERT INTO `tbl_service_type` (`tbl_service_id`, `service_type`, `business_permit`, `insurance_policy`, `bfp_or`, `endorsement`, `building_completion`, `electrical_completion`, `fsec_certificate`, `building_specification`, `bill_material`, `voltage_circuit`, `reference_id`, `queue`, `date_register`, `status_cro`, `fca`, `fcca`, `fses`, `fire_marshal`, `tbl_info_fk`, `tbl_bs_fk`) VALUES
-(2, 'FSIC-Business Permit', 'vlera.png', 'vlera.png', 'dps.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '878621b092174a7f', 245362, '2022-02-27 19:58:59.000000', 'OK', 'OK', 'OK', 'OK', 'OK', 2, 1),
-(3, 'FSIC-Business Permit', 'Ezgold.png', 'Ezgold.png', 'Ezgold.png', '', '', '', '', '', '', '', '229621b154a81c36', 555502, '2022-02-27 20:27:19.000000', 'OK', 'OK', 'OK', 'OK', 'OK', 3, 1),
-(4, 'FSEC-Permit', NULL, NULL, 'vlera.png', NULL, NULL, NULL, NULL, 'vlera.png', 'vlera.png', 'vlera.png', '359621b69d987839', 953185, '2022-02-27 20:26:39.000000', 'pending', ' ', ' ', ' ', ' ', 4, 1),
-(5, 'FSIC-Occupancy Permit', NULL, NULL, 'dps.png', 'dps.png', 'dps.png', 'dps.png', 'dps.png', NULL, NULL, NULL, '667621b6e900e4ba', 690950, '2022-03-01 19:35:09.000000', 'OK', 'On Payment', 'lacking', ' ', ' ', 5, 1),
-(6, 'FSIC-Business Permit', 'plead.png', 'plead.png', 'plead.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '3006221f73a97e1b', 153193, '2022-03-06 00:52:59.000000', 'lacking', '', '', '', '', 6, 1);
+INSERT INTO `tbl_service_type` (`tbl_service_id`, `service_type`, `business_permit`, `insurance_policy`, `bfp_or`, `endorsement`, `building_completion`, `electrical_completion`, `fsec_certificate`, `building_specification`, `bill_material`, `voltage_circuit`, `reference_id`, `queue`, `date_register`, `status_cro`, `fca`, `fcca`, `inspection`, `fses`, `fire_marshal`, `tbl_info_fk`, `tbl_bs_fk`) VALUES
+(2, 'FSIC-Business Permit', 'vlera.png', 'vlera.png', 'dps.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '878621b092174a7f', 245362, '2022-02-27 19:58:59.000000', 'OK', 'OK', 'OK', '', 'OK', 'OK', 2, 1),
+(3, 'FSIC-Business Permit', 'Ezgold.png', 'Ezgold.png', 'Ezgold.png', '', '', '', '', '', '', '', '229621b154a81c36', 555502, '2022-02-27 20:27:19.000000', 'OK', 'OK', 'OK', '', 'OK', 'OK', 3, 1),
+(4, 'FSEC-Permit', NULL, NULL, 'face-with-pleading-eyes_1f97a.png', NULL, NULL, NULL, NULL, 'face-with-pleading-eyes_1f97a.png', 'face-with-pleading-eyes_1f97a.png', 'face-with-pleading-eyes_1f97a.png', '359621b69d987839', 953185, '2022-03-07 14:07:36.000000', 'OK', 'OK', 'OK', '', 'OK', 'OK', 4, 1),
+(5, 'FSIC-Occupancy Permit', NULL, NULL, 'dps.png', 'dps.png', 'dps.png', 'dps.png', 'dps.png', NULL, NULL, NULL, '667621b6e900e4ba', 690950, '2022-03-01 19:35:09.000000', 'lacking', ' ', ' ', '', ' ', ' ', 5, 1),
+(6, 'FSIC-Business Permit', 'dps.png', 'dps.png', 'dps.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '3006221f73a97e1b', 153193, '2022-03-06 14:34:13.000000', 'lacking', '', '', '', '', '', 6, 1),
+(7, 'FSIC-Business Permit', 'dps.png', 'dps.png', 'dps.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '4016226331714776', 858174, '2022-03-12 00:40:40.000000', 'OK', 'OK', 'pending', 'Comply', ' ', ' ', 7, 1),
+(8, 'FSEC-Permit', NULL, NULL, 'ruina.png', NULL, NULL, NULL, NULL, 'ruina.png', 'ruina.png', 'ruina.png', '7036226334a5ab43', 485817, '2022-03-08 00:31:06.000000', 'OK', 'Done', 'Paid', 'N/A', '', '', 8, 1),
+(9, 'FSIC-Occupancy Permit', NULL, NULL, 'plead.png', 'plead.png', 'plead.png', 'plead.png', 'plead.png', NULL, NULL, NULL, '5296226336cb0f9d', 376599, '2022-03-08 00:31:40.000000', 'OK', 'Done', 'Paid', 'Correction', '', '', 9, 1),
+(10, '', NULL, NULL, '', NULL, NULL, NULL, NULL, '', '', '', '196622b84d9ce38c', 175287, '2022-03-12 01:20:25.000000', 'pending', '', '', '', '', '', 10, 1),
+(11, 'FSEC-Permit', NULL, NULL, 'signature1.PNG', NULL, NULL, NULL, NULL, 'face-with-pleading-eyes_1f97a.png', 'ruina.png', 'signature1.PNG', '451622cb49e5f523', 171679, '2022-03-12 22:56:30.000000', 'pending', '', '', '', '', '', 11, 1);
 
 -- --------------------------------------------------------
 
@@ -617,7 +695,12 @@ INSERT INTO `tbl_transaction` (`tbl_transaction_id`, `transaction_code`, `name`,
 (10, 'jahsdawd', 'Georgie Recabo', 50.00, 'pleading-face.png', 5, '', '2022-03-05 15:01:07.000000'),
 (11, 'ADW-32a-AWD-awd', 'Georgie Recabo', 300.00, 'plead.png', 4, 'geor', '2022-03-05 19:52:25.000000'),
 (12, 'AWDAWD', 'Georgie Recabo', 300.00, 'plead.png', 2, 'awdbawd', '2022-03-05 20:24:45.000000'),
-(13, 'DAW-awd', 'Georgie Recabo', 200.00, '12432.png', 2, 'Killa', '2022-03-05 20:26:52.000000');
+(13, 'DAW-awd', 'Georgie Recabo', 200.00, '12432.png', 2, 'Killa', '2022-03-05 20:26:52.000000'),
+(14, 'LDOAWdhaw', 'Georgie Recabo', 140.00, 'globe.png', 5, 'Jemwel', '2022-03-06 14:23:02.000000'),
+(15, 'POdjaw', '', 500.00, 'face-with-pleading-eyes_1f97a.png', 4, '', '2022-03-07 14:09:43.000000'),
+(16, 'AWDAWD', '', 230.00, 'ruina.png', 7, '', '2022-03-08 00:36:14.000000'),
+(17, 'AWDDawgdh8awd', '', 320.00, 'ruina.png', 8, '', '2022-03-08 00:46:40.000000'),
+(18, 'awrd7281531agdwyuawd', '', 200.00, 'ruina.png', 9, '', '2022-03-08 00:49:08.000000');
 
 -- --------------------------------------------------------
 
@@ -643,7 +726,7 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`tbl_user_id`, `fname`, `mname`, `lname`, `email`, `password`, `status`, `contact`, `date_create`) VALUES
 (1, 'GEORGIE', NULL, 'RECABO', 'georgie.recabo@urios.edu.ph', '', 0, NULL, '2022-02-20 20:42:07.000000'),
-(2, 'Georgie', NULL, 'Recabo', 'georgierecabo12@gmail.com', '', 0, NULL, '2022-02-20 20:44:32.000000'),
+(2, 'Jemwel', '', 'Gwapo', 'georgierecabo12@gmail.com', '', 0, '', '2022-02-20 20:44:32.000000'),
 (3, 'Jemwel', 'AD', 'ahwd', 'jemwel_connie@gmail.com', '$2y$10$IOzuyrKY.A2ck2lsTEiOa.Jcc1T.Kr5U6NzufeitNd6BHuCFnpbUm', 0, '0921873712', '2022-02-20 20:59:29.000000');
 
 --
@@ -703,6 +786,13 @@ ALTER TABLE `tbl_cro_msg`
 ALTER TABLE `tbl_fcca_msg`
   ADD PRIMARY KEY (`tbl_msg_id`),
   ADD KEY `tbl_msg_fk` (`tbl_msg_fk`);
+
+--
+-- Indexes for table `tbl_inspection_info`
+--
+ALTER TABLE `tbl_inspection_info`
+  ADD PRIMARY KEY (`tbl_inspection_id`),
+  ADD KEY `tbl_service_fk` (`tbl_service_fk`);
 
 --
 -- Indexes for table `tbl_payment`
@@ -778,7 +868,7 @@ ALTER TABLE `tbl_address`
 -- AUTO_INCREMENT for table `tbl_approved`
 --
 ALTER TABLE `tbl_approved`
-  MODIFY `approve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `approve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tbl_business`
@@ -790,13 +880,13 @@ ALTER TABLE `tbl_business`
 -- AUTO_INCREMENT for table `tbl_client_info`
 --
 ALTER TABLE `tbl_client_info`
-  MODIFY `client_info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `client_info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_cro_msg`
 --
 ALTER TABLE `tbl_cro_msg`
-  MODIFY `tbl_cro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `tbl_cro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_fcca_msg`
@@ -805,10 +895,16 @@ ALTER TABLE `tbl_fcca_msg`
   MODIFY `tbl_msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT for table `tbl_inspection_info`
+--
+ALTER TABLE `tbl_inspection_info`
+  MODIFY `tbl_inspection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `tbl_payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `tbl_payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_personnel`
@@ -820,25 +916,25 @@ ALTER TABLE `tbl_personnel`
 -- AUTO_INCREMENT for table `tbl_report`
 --
 ALTER TABLE `tbl_report`
-  MODIFY `tbl_report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `tbl_report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_report_account`
 --
 ALTER TABLE `tbl_report_account`
-  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_service_type`
 --
 ALTER TABLE `tbl_service_type`
-  MODIFY `tbl_service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `tbl_service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_transaction`
 --
 ALTER TABLE `tbl_transaction`
-  MODIFY `tbl_transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `tbl_transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
@@ -885,6 +981,12 @@ ALTER TABLE `tbl_cro_msg`
 --
 ALTER TABLE `tbl_fcca_msg`
   ADD CONSTRAINT `tbl_fcca_msg_ibfk_1` FOREIGN KEY (`tbl_msg_fk`) REFERENCES `tbl_service_type` (`tbl_service_id`);
+
+--
+-- Constraints for table `tbl_inspection_info`
+--
+ALTER TABLE `tbl_inspection_info`
+  ADD CONSTRAINT `tbl_inspection_info_ibfk_1` FOREIGN KEY (`tbl_service_fk`) REFERENCES `tbl_service_type` (`tbl_service_id`);
 
 --
 -- Constraints for table `tbl_payment`

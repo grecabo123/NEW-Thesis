@@ -22,9 +22,9 @@
         }   
     }
     else{
-        echo "error";
-        // header("location: ../login");
-        // exit();
+        // echo "error";
+        header("location: ../login");
+        exit();
     }
 ?>
 <?php
@@ -123,10 +123,10 @@
 
            <div class="container ">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-success">
                     <div class="col-md-12">
                         <!-- <img src="../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail rounded-circle" width="100" height="100"> -->
-                        <h3 class="text-left modal-title fw-bold">Hazard/Complaint Report</h3>
+                        <h3 class="text-left modal-title fw-bold text-light">Hazard/Complaint Report</h3>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -174,12 +174,17 @@
                             <label for="" class="form-label">
                                 Landmark
                             </label>
-                            <textarea name="lanmark" id="landmark" cols="5" rows="5" class="form-control" required></textarea>
-                           
+                            <textarea name="lanmark" id="landmark" cols="2" rows="2" class="form-control" required></textarea>
+                        </div>
+                        <div class="mb-7">
+                            <label for="" class="form-label">
+                                Description
+                            </label>
+                            <textarea name="lanmark" id="description_hazard" cols="4" rows="4" class="form-control" required></textarea>
                         </div>
                         <br>
                         <div class="col-md-12" class="form-label">
-                            <button id="hazard" class="btn btn-primary">Send Report</button>
+                            <button id="hazard" class="btn btn-primary"> <i class="fas fa-paper-plane me-1"></i> Send Report</button>
                             <button class="btn btn-primary hide" type="button" disabled>
                               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 Sending...

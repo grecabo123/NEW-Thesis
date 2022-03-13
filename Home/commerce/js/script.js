@@ -11,6 +11,7 @@ $(document).ready(function() {
 		var str = $('#street').val();
 		var brgy = $('#brgy').val();
 		var landmark = $('#landmark').val();
+		var des = $('#description_hazard').val();
 
 		console.log(str);
 
@@ -22,9 +23,9 @@ $(document).ready(function() {
 				str:str,
 				brgy:brgy,
 				landmark:landmark,
+				des:des,
 			},
 			success:function(response){
-				
 				if (response == "Done") {
 					$('.center_sp').addClass('bg-spin');
 					$('.hide').css('display', 'block');
@@ -35,7 +36,10 @@ $(document).ready(function() {
 					},3000);
 				}
 				else{
-
+					setTimeout(function(){
+						alertify.error("Failed To Sent");
+						window.location = "hazard";	
+					},3000);
 				}
 			}
 		});
@@ -48,6 +52,8 @@ $(document).ready(function() {
 		var brgy = $('#brgy_inci').val();
 		var type = $('#incident_type').val();
 		var land = $('#lanmark_incident').val();
+		var des = $('#description').val();
+
 
 		$.ajax({
 			url: "report",
@@ -58,6 +64,7 @@ $(document).ready(function() {
 				brgy:brgy,
 				type:type,
 				land:land,
+				des:des,
 			},
 			success:function(response){
 				if (response == 1) {

@@ -51,7 +51,7 @@ $(document).ready(function(){
 		var str = $('#street').val();
 		var brgy = $('#brgy').val();
 		var landmark = $('#landmark').val();
-
+		var des = $('#descrip').val();
 		$.ajax({
 			url: "report",
 			type: "POST",
@@ -60,6 +60,7 @@ $(document).ready(function(){
 				str:str,
 				brgy:brgy,
 				landmark:landmark,
+				des:des,
 			},
 			success:function(response){
 				console.log(response);
@@ -88,6 +89,7 @@ $(document).ready(function(){
 		var brgy = $('#brgy_inci').val();
 		var type = $('#incident_type').val();
 		var land = $('#lanmark_incident').val();
+		var des = $('#description_incident').val();
 
 		$.ajax({
 			url: "report",
@@ -98,6 +100,7 @@ $(document).ready(function(){
 				brgy:brgy,
 				type:type,
 				land:land,
+				des:des,
 			},
 			success:function(response){
 				if (response == 1) {
@@ -105,7 +108,6 @@ $(document).ready(function(){
 					$('.hide').css('display', 'block');
 					$('#incident').css('display', 'none');
 					setTimeout(function(){
-						
 						window.location = "incident";	
 					},3000);
 				}

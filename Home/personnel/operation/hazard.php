@@ -164,7 +164,13 @@
                         <label for="" class="form-label fw-bold">
                           Landmark:
                         </label>
-                        <textarea name="" cols="5" rows="5" class="form-control" readonly id="landmark"></textarea>
+                        <textarea name="" cols="2" rows="2" class="form-control" readonly id="landmark"></textarea>
+                      </div>
+                      <div class="col-md-12">
+                        <label for="" class="form-label fw-bold">
+                          Description
+                        </label>
+                        <textarea name="" cols="4" rows="4" class="form-control" readonly id="description"></textarea>
                       </div>
                       <div class="modal-footer mt-2">
                         <button class="btn btn-secondary" onclick="Close_modal();">Close</button>

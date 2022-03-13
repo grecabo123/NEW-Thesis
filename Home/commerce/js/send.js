@@ -925,7 +925,7 @@ function occupancy_payment(){
 
 
 				success:function(response){
-					console.log(response);
+					
 					if (response == 2) {
 						
 						$('#tranaction_code').val('');
@@ -968,7 +968,7 @@ function fsec_payment(){
 		var id_fk = $('#pk_id').val();
 		var proxy = $('#proxy_fsec').val();
 
-		console.log(num);
+		
 
 
 

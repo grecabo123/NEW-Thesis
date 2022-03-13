@@ -22,9 +22,9 @@
         }   
     }
     else{
-        echo "error";
-        // header("location: ../login");
-        // exit();
+        // echo "error";
+        header("location: ../login");
+        exit();
     }
 ?>
 <?php
@@ -92,7 +92,7 @@
                 </div>
                 <!-- end of dropdown -->
                 <a href="instruction.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-chalkboard-teacher me-2"></i>Instruction</a>
-                <a href="../logout/logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                <a href="../logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
             </div>
         </div>
@@ -114,9 +114,9 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                               	<div id="date" style="color: white; font-size: 17px;">
-                               		<p id="time"></p>
-                               	</div>
+                                <div id="date" style="color: white; font-size: 17px;">
+                                    <p id="time"></p>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -124,10 +124,10 @@
 
                   <div class="container ">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-success">
                     <div class="col-md-12">
                         <!-- <img src="../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail rounded-circle" width="100" height="100"> -->
-                        <h3 class="text-left modal-title fw-bold">Incident Report</h3>
+                        <h3 class="text-left modal-title fw-bold text-light">Incident Report</h3>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -173,25 +173,30 @@
                                 <option disabled selected>Choose Incident</option>
                                 <option value="Medical">Medical</option>
                                 <option value="Rescue">Rescue</option>
+                                <option value="Fire Incident">Fire Incident</option>
+                                <option value="others">Others</option>
                             </select>
                         </div>
                        <div class="mb-7">
                             <label for="" class="form-label">
                                 Landmark
                             </label>
-                            <textarea id="lanmark_incident" cols="5" rows="5" class="form-control" required></textarea>
-                           
+                            <textarea id="lanmark_incident" cols="2" rows="2" class="form-control" required style="resize: none;"></textarea>
+                        </div>
+                        <div class="mb-7">
+                            <label for="" class="form-label">
+                                Description:
+                            </label>
+                            <textarea id="description" cols="4" rows="4" class="form-control" required style="resize: none;"></textarea>
                         </div>
                         <br>
                         <div class="col-md-12" class="form-label">
-                            <button id="incident" class="btn btn-primary">Send Report</button>
+                            <button id="incident" class="btn btn-primary"><i class="fas fa-paper-plane me-1"></i> Send Report</button>
                             <button class="btn btn-primary hide" type="button" disabled>
                               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 Sending...
                             </button>
                         </div>
-                    
-                   
                 </div>
             </div>
         </div>

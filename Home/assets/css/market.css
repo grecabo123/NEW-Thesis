@@ -118,7 +118,7 @@
 	font-size: 16px;
 	color: white;
 }
-.box,.report,.fsic-permit,.occupancy-permit,.fsec-permit,.chat,.account-form,.hazard,.status,.incident_modal,.modal_img{
+.box,.report,.fsic-permit,.occupancy-permit,.fsec-permit,.chat,.account-form,.hazard,.status,.incident_modal,.modal_img,.modal_img_fsec,.modal_img_occupancy,.inspection,.inspection_upload{
 	position: fixed;
 	justify-content: center;
 	align-items: center;
@@ -377,6 +377,27 @@ input:focus {
   animation: spin 1s ease-in-out infinite;
   -webkit-animation: spin 1s ease-in-out infinite;
 }
+
+
+/*inspection*/
+.inspection_width{
+	width: 932px;
+	max-width: 100%;
+}
+
+.list_file ul li{
+	margin: 10px 0px;
+}
+
+/*fonts*/
+
+.text_font span, .terms ul li small{
+	font-family: 'Poppins', sans-serif;
+	font-size: 15px;
+}
+
+
+
 
 @keyframes spin {
   to { -webkit-transform: rotate(360deg); }

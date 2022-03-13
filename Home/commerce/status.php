@@ -139,6 +139,7 @@
                                     <th class="text-light">CRO Status</th>
                                     <th class="text-light">FCA Status</th>
                                     <th class="text-light">FCCA Status</th>
+                                    <th class="text-light">Inspection Status</th>
                                     <th class="text-light">FSES Status</th>
                                     <th class="text-light">FM Status</th>
                                 </tr>

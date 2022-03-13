@@ -21,7 +21,6 @@ $(document).ready(function(){
 			method: "POST",
 			data:{
 				view:view,
-				
 			},
 			dataType: "json",
 			success:function(data){

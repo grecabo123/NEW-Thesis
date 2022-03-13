@@ -192,8 +192,19 @@ $(document).ready(function(){
 
 	// fsec
 
-	$('#fsec_lack').click(function(event) {
+	$('#fsec_modal_msg').click(function(event) {
+
+		$('.modal_img_fsec').addClass('bg-active');
+
+		
+
+	});
+
+	// fsec message forward
+
+	$('#fsec_lack').click(function(event){
 		var num = $(this).attr('value');
+		var txt_msg = $('#fsec_msg').val();
 		
 		$.ajax({
 			url: "update",
@@ -201,12 +212,18 @@ $(document).ready(function(){
 			data: {
 				"fsec_lack" : true,
 				num:num,
+				txt_msg:txt_msg,
 			},
 			success:function(response){
+				$('.modal_img_fsec').removeClass('bg-active');
 				$('.center_sp').addClass('bg-spin');
 				if (response == 1) {
 					setTimeout(function(){
+						$('#lacking_msg').val('');
 						$('.center_sp').removeClass('bg-spin');
+					},1500);
+					setTimeout(function(){
+						
 						$('.data').css('display', 'none');
 						$('.search').css('display', 'block');
 						$('.data-table').css('display', 'block');
@@ -228,11 +245,19 @@ $(document).ready(function(){
 				}
 			}
 		});
-
 	});
 
 	// occupancy
-	$('#occupancy_lack').click(function(event) {
+	$('#occu_modal_msg').click(function(event) {
+
+		$('.modal_img_occupancy').addClass('bg-active');
+
+
+	});
+
+	$('#occupancy_lack').click(function(event){
+
+		var txt_occu = $('#occu_msg').val();
 		var num = $(this).attr('value');
 		
 		$.ajax({
@@ -241,10 +266,16 @@ $(document).ready(function(){
 			data: {
 				"occu_lack" : true,
 				num:num,
+				txt_occu:txt_occu,
 			},
 			success:function(response){
+				$('.modal_img_occupancy').removeClass('bg-active');
 				$('.center_sp').addClass('bg-spin');
 				if (response == 1) {
+					setTimeout(function(){
+						$('#occu_msg').val('');
+						$('.center_sp').removeClass('bg-spin');
+					},1500);
 					setTimeout(function(){
 						$('.center_sp').removeClass('bg-spin');
 						$('.data').css('display', 'none');
@@ -268,7 +299,6 @@ $(document).ready(function(){
 				}
 			}
 		});
-
 	});
 
 

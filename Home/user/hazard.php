@@ -124,10 +124,10 @@
                
                <div class="container ">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-success">
                     <div class="col-md-12">
                         <!-- <img src="../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail rounded-circle" width="100" height="100"> -->
-                        <h3 class="text-left modal-title fw-bold">Hazard/Complaint Report</h3>
+                        <h3 class="text-left modal-title fw-bold text-light">Hazard/Complaint Report</h3>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -175,7 +175,14 @@
                             <label for="" class="form-label">
                                 Landmark
                             </label>
-                            <textarea name="lanmark" id="landmark" cols="5" rows="5" class="form-control" required></textarea>
+                            <textarea name="lanmark" id="landmark" cols="2" rows="2" class="form-control" required></textarea>
+                           
+                        </div>
+                        <div class="mb-7">
+                            <label for="" class="form-label">
+                                Description
+                            </label>
+                            <textarea name="lanmark" id="descrip" cols="4" rows="4" class="form-control" required></textarea>
                            
                         </div>
                         <br>
@@ -216,9 +223,9 @@
     <script type="text/javascript" src="../assets/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="../assets/js/fontawesome.js"></script>
     <script type="text/javascript" src="../assets/js/user.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
     <script src="../assets/js/alertify.js"></script>
     <script src="../assets/js/alertify.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     <script>
 
 

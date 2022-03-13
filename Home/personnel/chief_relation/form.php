@@ -71,7 +71,7 @@
                 <a href="index" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
                 <a href="account" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-user-alt me-2"></i>Account</a>
-				<a id="form" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i
+        <a id="form" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i
             class="fas fa-project-diagram me-2"></i>Request &nbsp<i class="fas fa-caret-down"></i></a>
              <!-- dropdownb -->
                 <div class="container-fluid d-block">
@@ -335,7 +335,7 @@
                     <div class="modal-footer">
                       <div class="col-md-12" class="form-label">
                               <button class="btn btn-primary" id="fsec_approve">Approved</button>
-                              <button class="btn btn-danger" id="fsec_lack">Return/Lack of Requirements</button>
+                              <button class="btn btn-danger" id="fsec_modal_msg">Return/Lack of Requirements</button>
                           </div>
                     </div>
                 </div>
@@ -431,7 +431,7 @@
                     <div class="modal-footer">
                       <div class="col-md-12" class="form-label">
                               <button class="btn btn-primary" id="occupancy_btn">Approved</button>
-                              <button class="btn btn-danger" id="occupancy_lack">Return/Lack of Requirements</button>
+                              <button class="btn btn-danger" id="occu_modal_msg">Return/Lack of Requirements</button>
                           </div>
                     </div>
                 </div>
@@ -448,7 +448,7 @@
         </div>
 
 
-
+        <!-- FSIC-Business Permit message form -->
         <div class="modal_img">
                 <div class="container">
                 <div class="modal-dialog">
@@ -473,7 +473,62 @@
                   </div>
             </div>
             </div>
+            <!-- end of FSIC-Business Permit message form -->
 
+
+            <!-- FSEC-Permit  message form-->
+            <div class="modal_img_fsec">
+                <div class="container">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Message</h5>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-group">
+                            <div class="mb-1">
+                                <textarea name="" id="fsec_msg" cols="5" rows="5" class="form-control" style="resize: none;" placeholder="Write a Message"></textarea>
+                            </div>
+                            
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" onclick="modal_img_close();">Close</button>
+                        <button type="button" class="btn btn-success" id="fsec_lack">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            </div>
+            <!-- end of FSEC-Permit messgae form -->
+
+            <!-- occupancy message form -->
+            <div class="modal_img_occupancy">
+                <div class="container">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Message</h5>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-group">
+                            <div class="mb-1">
+                                <textarea name="" id="occu_msg" cols="5" rows="5" class="form-control" style="resize: none;" placeholder="Write a Message"></textarea>
+                            </div>
+                            
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" onclick="modal_img_close();">Close</button>
+                        <button type="button" class="btn btn-success" id="occupancy_lack">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            </div>
+            <!-- end of occupancy message form -->
 
 
         <!-- <div class="data"> -->

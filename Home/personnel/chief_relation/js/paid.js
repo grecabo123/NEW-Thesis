@@ -50,13 +50,18 @@ function Paid(){
 			}
 			else{
 				$.each(response, function(index, val) {
-					$('#table_paid').append('<tr>'+
+					if (val['inspection'] == "On Process" || val['inspection'] == "pending" || val['inspection'] == "Comply" || val['inspection'] == "Correction") {
+						
+					}
+					else{
+						$('#table_paid').append('<tr>'+
 								'<td class="text-light"> <span id="fk_id">'+val['queue']+'</span></td>'+
                                 '<td class="text-light">'+val['service_type']+'</td>'+
                                 '<td class="text-light">'+val['business_name']+'</td>'+
                                 '<td class="text-light"><button id="forward" class="btn-sm btn-primary" value="'+val['tbl_service_id']+'">Forward</button></td>'+
                             '</tr>'
-					);
+						);
+					}
 				});
 			}
 		}

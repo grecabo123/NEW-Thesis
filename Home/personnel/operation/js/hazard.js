@@ -7,8 +7,7 @@ $(document).ready(function(){
 		var report_id = $(this).attr('value');
 		var user_id = $(this).closest('td').find('.report_id').text();
 
-		console.log(report_id);
-		console.log(user_id);
+		
 
 		$.ajax({
 			url: "update",
@@ -30,7 +29,7 @@ $(document).ready(function(){
 						$('#from').prop('value',full);
 					 	$('#landmark').prop('value',val['landmark']);
 					 	$('#brgy').prop('value',val['brgy']);
-					 	
+					 	$('#description').prop('value',val['description']);
 					 	$('#feedback').attr('value',val['tbl_report_id']);
 					});
 				}

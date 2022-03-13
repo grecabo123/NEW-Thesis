@@ -124,10 +124,10 @@
                
                <div class="container ">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-success">
                     <div class="col-md-12">
                         <!-- <img src="../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail rounded-circle" width="100" height="100"> -->
-                        <h3 class="text-left modal-title fw-bold">Account Information</h3>
+                        <h3 class="text-left modal-title fw-bold text-light">Account Information</h3>
                     </div>
                 </div>
                 <div class="modal-body">

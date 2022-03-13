@@ -59,12 +59,12 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-dark-color" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail" width="100" height="100"><br><span class="text-muted"><span style="font-size: 15px;">Chief Relation Officer </span><span class="text-muted" style="font-size: 12px; vertical-align: middle;">  <br><?php echo $fname." ".$lname."<br>".$position; ?></span></span></div>
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail" width="100" height="100"><br><span class="text-muted"><span style="font-size: 15px;">Chief Operation </span><span class="text-muted" style="font-size: 12px; vertical-align: middle;">  <br><?php echo $fname." ".$lname."<br>".$position; ?></span></span></div>
             <div class="list-group list-group-flush my-3">
                 <a href="index" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
                 <a href="account" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-user-alt me-2"></i>Account</a>
-				<a id="report" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i
+        <a id="report" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i
             class="fas fa-project-diagram me-2"></i>Report <span class="badge bg-danger notification"></span> &nbsp<i class="fas fa-caret-down"></i></a>
              <!-- dropdownb -->
                 <div class="container-fluid">
@@ -170,7 +170,13 @@
                         <label for="" class="form-label fw-bold">
                           Landmark:
                         </label>
-                        <textarea name="" cols="5" rows="5" class="form-control" readonly id="landmark"></textarea>
+                        <textarea name="" cols="2" rows="2" class="form-control" readonly id="landmark"></textarea>
+                      </div>
+                      <div class="col-md-12">
+                        <label for="" class="form-label fw-bold">
+                          Description
+                        </label>
+                        <textarea name="" cols="4" rows="4" class="form-control" readonly id="description_incident"></textarea>
                       </div>
                       <div class="modal-footer mt-2">
                         <button class="btn btn-secondary" onclick="Close_modal();">Close</button>

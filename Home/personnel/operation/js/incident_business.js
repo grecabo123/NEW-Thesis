@@ -42,6 +42,7 @@ $(document).ready(function(){
 					 	$('#brgy').prop('value',val['brgy']);
 					 	$('#incident').prop('value',val['Incident_type']);
 					 	$('#feedback').attr('value',val['tbl_report_id']);
+					 	$('#description_incident').prop('value',val['description']);
 					});
 				}
 			}
@@ -96,6 +97,7 @@ function incident_load_data(){
 	$.ajax({
 		type: "POST",
 		url: "data_incident_business",
+		cache: false,
 		success:function(response){
 			// console.log(response)
 			$('td').remove();
@@ -154,7 +156,9 @@ function incident_load_data(){
                                 '<td class="text-light"><a class="view_data fw-bold" style="text-decoration: none; cursor: pointer;" value="'+val['tbl_report_id']+'" >'+val['status']+'<span class="d-none report_id">'+val['account_fk']+'</span></td>'+
                             '</tr>'
 						);
+
 					}
+
 				});
 			}		
 		}

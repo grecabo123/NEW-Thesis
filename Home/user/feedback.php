@@ -129,7 +129,7 @@
                                 <tr>
                                     <th class="text-light">#</th>
                                     <th class="text-light">Report Type:</th>
-                                    <th class="text-light">Action</th>
+                                    <th class="text-light">Status</th>
                                 </tr>
                             </thead>
                             <tbody id="incident_data">

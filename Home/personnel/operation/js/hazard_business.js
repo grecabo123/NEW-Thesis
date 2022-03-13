@@ -28,7 +28,7 @@ $(document).ready(function(){
 						$('#from').prop('value',val['name_of_person']);
 					 	$('#landmark').prop('value',val['landmark']);
 					 	$('#brgy').prop('value',val['brgy']);
-					 	
+					 	$('#description').prop('value',val['description']);
 					 	$('#feedback').attr('value',val['tbl_report_id']);
 					});
 				}

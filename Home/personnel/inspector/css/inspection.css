@@ -1,0 +1,14 @@
+ul li{
+	margin: 0px 10px;
+	display: inline-block;
+}
+.dot-btn,.correction,.comply{
+	display: none;
+}
+.dot-btn.show{
+	display: block;
+}
+.correction.show_time,.comply.show_time{
+	/*transition: 0.5s;*/
+	display: block;
+}

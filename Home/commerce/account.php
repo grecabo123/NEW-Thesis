@@ -90,7 +90,7 @@
                 </div>
                 <!-- end of dropdown -->
                 <a href="instruction.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-chalkboard-teacher me-2"></i>Instruction</a>
-                <a href="../logout/logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                <a href="../logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
             </div>
         </div>
@@ -123,9 +123,9 @@
            
                  <div class="container">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header bg-success">
                             <div class="col-md-12">
-                                <h3 class="text-left modal-title fw-bold">Account Information</h3>
+                                <h3 class="text-left modal-title fw-bold text-light">Account Information</h3>
                             </div>
                         </div>
                         <div class="modal-body">

@@ -8,10 +8,50 @@
 		$remark = "Paid";
 		$done = "Done";
 
-		$update = "UPDATE tbl_service_type SET fcca ='$remark', fca ='$done' WHERE tbl_service_id = $service_id";
+		$update = "UPDATE tbl_service_type SET fcca ='$remark', fca ='$done',inspection='N/A' WHERE tbl_service_id = $service_id";
 
 		if (mysqli_query($conn,$update) === TRUE) {
 			echo 1;
+		}
+	}
+	else if (isset($_POST['update_fsic'])) {
+		$service_id = mysqli_real_escape_string($conn,$_POST['id']);
+		$remark = "Paid";
+		$done = "Done";
+
+		$num1 = rand(100,999);
+		$num2 = rand(100,999);
+		$num3 = rand(100,999);
+
+		$ref = $num1."".$num2."".$num3;
+
+		$update = "UPDATE tbl_service_type SET fcca ='$remark', fca ='$done',inspection='pending' WHERE tbl_service_id = $service_id";
+
+		if (mysqli_query($conn,$update) === TRUE) {
+			$insert = "INSERT INTO tbl_inspection_info (inspection_no,type_buidling,date_issued,date_inspection,nature_of_ion,file_upload,tbl_service_fk,date_delivered_fcca) VALUES($ref,'','','','','',$service_id,NOW())";
+			if (mysqli_query($conn,$insert) === TRUE) {
+				echo 1;
+			}
+		}
+	}
+	else if (isset($_POST['update_occupancy'])) {
+		$service_id = mysqli_real_escape_string($conn,$_POST['id']);
+		$remark = "Paid";
+		$done = "Done";
+
+		$num1 = rand(100,999);
+		$num2 = rand(100,999);
+		$num3 = rand(100,999);
+
+		$ref = $num1."".$num2."".$num3;
+
+		$update = "UPDATE tbl_service_type SET fcca ='$remark', fca ='$done',inspection='pending' WHERE tbl_service_id = $service_id";
+
+		if (mysqli_query($conn,$update) === TRUE) {
+			$insert = "INSERT INTO tbl_inspection_info (inspection_no,type_buidling,date_issued,date_inspection,nature_of_ion,file_upload,tbl_service_fk,date_delivered_fcca) VALUES($ref,'','','','','',$service_id,NOW())";
+			if (mysqli_query($conn,$insert) === TRUE) {
+				echo 1;
+			}
 		}
 	}
 	else if (isset($_POST['send_msg'])) {

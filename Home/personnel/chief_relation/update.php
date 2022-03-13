@@ -51,21 +51,29 @@
 	else if (isset($_POST['fsec_lack'])) {
 		
 		$num = mysqli_real_escape_string($conn,$_POST['num']);
+		$txt_msg = mysqli_real_escape_string($conn,$_POST['txt_msg']);
 
 		$fsic = "UPDATE tbl_service_type SET status_cro ='lacking' WHERE tbl_info_fk = $num";
 
 		if (mysqli_query($conn,$fsic) === TRUE) {
-			echo 1;
+			$sql = "INSERT INTO tbl_cro_msg(message,tbl_cro_msg_fk,date_msg) VALUES ('$txt_msg',$num,NOW())";
+			if (mysqli_query($conn,$sql) === TRUE) {
+				echo 1;
+			}
 		}
 	}
 	else if (isset($_POST['occu_lack'])) {
 		
 		$num = mysqli_real_escape_string($conn,$_POST['num']);
+		$txt_occu = mysqli_real_escape_string($conn,$_POST['txt_occu']);
 
 		$fsic = "UPDATE tbl_service_type SET status_cro ='lacking' WHERE tbl_info_fk = $num";
 
 		if (mysqli_query($conn,$fsic) === TRUE) {
-			echo 1;
+			$sql = "INSERT INTO tbl_cro_msg(message,tbl_cro_msg_fk,date_msg) VALUES ('$txt_occu',$num,NOW())";
+			if (mysqli_query($conn,$sql) === TRUE) {
+				echo 1;
+			}
 		}
 	}
 ?>

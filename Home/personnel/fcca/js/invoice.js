@@ -4,32 +4,89 @@ $(document).ready(function(){
 
 	$('#submit').click(function(event) {
 		var id = $(this).attr('value');
-		console.log(id);
+		var permit = $('#permit').text();
+		
 
-		$('#submit').css('display', 'none');
-		$('#loading').css('display', 'block');
+		if (permit == "FSIC-Business Permit") {
+			$('#submit').css('display', 'none');
+			$('#loading').css('display', 'block');
 
-		$.ajax({
-			url: "update",
-			type: "POST",
-			data:{
-				"update" : true,
-				id:id,
-			},
-			success:function(response){
-				// console.log(response)
-				if (response == 0) {
-					var msg = "Error"
-					$('#error').html(msg);
-					// window.location = ""
+			$.ajax({
+				url: "update",
+				type: "POST",
+				data:{
+					"update_fsic" : true,
+					id:id,
+				},
+				success:function(response){
+					// console.log(response)
+					if (response == 0) {
+						var msg = "Error"
+						$('#error').html(msg);
+						// window.location = ""
+					}
+					else{
+						setTimeout(function(){
+							window.location = "transaction";
+						},2500);
+					}
 				}
-				else{
-					setTimeout(function(){
-						window.location = "transaction";
-					},2500);
+			});
+		}
+		else if (permit == "FSEC-Permit") {
+			$('#submit').css('display', 'none');
+			$('#loading').css('display', 'block');
+
+			$.ajax({
+				url: "update",
+				type: "POST",
+				data:{
+					"update" : true,
+					id:id,
+				},
+				success:function(response){
+					// console.log(response)
+					if (response == 0) {
+						var msg = "Error"
+						$('#error').html(msg);
+						// window.location = ""
+					}
+					else{
+						setTimeout(function(){
+							window.location = "transaction";
+						},2500);
+					}
 				}
-			}
-		});
+			});
+		}
+		else if (permit == "FSIC-Occupancy Permit") {
+			$('#submit').css('display', 'none');
+			$('#loading').css('display', 'block');
+
+			$.ajax({
+				url: "update",
+				type: "POST",
+				data:{
+					"update_occupancy" : true,
+					id:id,
+				},
+				success:function(response){
+					// console.log(response)
+					if (response == 0) {
+						var msg = "Error"
+						$('#error').html(msg);
+						// window.location = ""
+					}
+					else{
+						setTimeout(function(){
+							window.location = "transaction";
+						},2500);
+					}
+				}
+			});
+		}
+
+		
 	});
 	$('#modal_open').click(function(event) {
 		$('.modal_color').addClass('bg-modal');
@@ -44,7 +101,7 @@ $(document).ready(function(){
 		var id = $(this).attr('value');
 		var txt = $('#text-msg').val();
 
-		console.log(id+'\n'+txt);
+		
 
 		$.ajax({
 			url: "update",
