@@ -62,3 +62,35 @@ tbl_service_fk
 
 
 
+
+Type of building: others
+
+status: rejected - if the inspection failed 
+
+archive - records 
+
+map procedure 
+
+PQ?
+
+pending inspection changed to Requested Form 
+
+nature of incident - feed back chief operation
+
+Medical emergency
+Fire incident  
+Rescue operation 
+Others
+
+Another entity for those who go to field.(if naa)
+
+
+hazard type
+
+drop down:
+chemical
+physical/insfastructure - old building 
+safety/ - electrical, tripwire, tripping hazard
+enviromental - manhole, landslide.
+
+

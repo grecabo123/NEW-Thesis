@@ -74,10 +74,10 @@
                             <a href="inspection" class="bg-transparent second-text fw-bold text-primary"><i class="fas fa-file"></i> Inspection</a>
                         </li>
                         <li class="list-group text-justify list-group-item bg-transparent list">
-                            <a href="record.php" class="bg-transparent second-text fw-bold"><i class="fas fa-file-archive"></i>  Recorded Form</a>
+                            <a href="approve" class="bg-transparent second-text fw-bold"><i class="fas fa-file-archive"></i>  Approved Form</a>
                         </li>
                         <li class="list-group text-left list-group-item bg-transparent list">
-                            <a href="pending" class="bg-transparent second-text fw-bold"> <i class="fas fa-file-invoice"></i> Pending Inspection</a>
+                            <a href="pending" class="bg-transparent second-text fw-bold"> <i class="fas fa-file-invoice"></i> Requested Form </a>
                         </li>
                     <!-- </div> -->
                 </div>
@@ -193,13 +193,13 @@
                           <label for="" class="form-label">
                           Date Issued:
                         </label>
-                          <input type="date" class="form-control">
+                          <input type="date" class="form-control" id="date_issued">
                         </div>
                         <div class="col-md-4">
                           <label for="" class="form-label">
                           Date of Inspection
                         </label>
-                          <input type="date" class="form-control">
+                          <input type="date" class="form-control" id="date_inspection">
                         </div>
                       </div>
                       <hr>

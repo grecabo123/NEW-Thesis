@@ -20,7 +20,7 @@
       }
   }
   else{
-    header("location: ../index");
+    header("location: ../");
     exit();
   }
 
@@ -33,6 +33,7 @@
   function Data_personnel($email,$user,$fname,$lname,$position){
 
     ?>
+
 
 
 <!DOCTYPE html>
@@ -50,36 +51,42 @@
     <link href="../../assets/img/Icon/logo.png" rel="icon">
      <link href="../../assets/css/user.css" rel="stylesheet">
      <link href="../../assets/css/market.css" rel="stylesheet">
-    <title>Fire Code Collecting Agent</title>
+     <link rel="stylesheet" href="css/inspection.css">
+     <link href="../../assets/css/alertify.css" rel="stylesheet">
+    <link href="../../assets/css/alertify.min.css" rel="stylesheet">
+    <title><?php echo $position; ?></title>
 </head>
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-dark-color" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail" width="100" height="100"><br><span class="text-muted"><span style="font-size: 15px;">Fire Code Collecting Agent</span><span class="text-muted" style="font-size: 12px; vertical-align: middle;"> <br> <span><?php echo $fname." ".$lname."<br>".$position; ?></span> <br></span></span></div>
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail" width="100" height="100"><br><span class="text-muted"><span style="font-size: 15px;">Chief Inspector </span><span class="text-muted" style="font-size: 12px; vertical-align: middle;">  <br><?php echo $fname." ".$lname."<br>"."Inspector"; ?></span></span></div>
             <div class="list-group list-group-flush my-3">
-                <a href="index" class="list-group-item list-group-item-action bg-transparent second-text fw-bold text-primary"><i
+                <a href="index" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
                 <a href="account" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-user-alt me-2"></i>Account</a>
-               <a id="report" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i
-            class="fas fa-project-diagram me-2"></i>Payment Request &nbsp<i class="fas fa-caret-down" id="caret"></i></a>
-
-            <div class="container-fluid dropdown">
+        <a id="report" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i
+            class="fas fa-project-diagram me-2"></i>Request &nbsp<i class="fas fa-caret-down" id="caret"></i></a>
+             <!-- dropdownb -->
+                <div class="container-fluid d-block">
                     <!-- <div class="list-group-item bg-transparent list"> -->
                         <li class="list-group text-justify list-group-item bg-transparent list">
-                            <a href="transaction" class="bg-transparent second-text fw-bold"><i class="fas fa-receipt"></i> Pending Payment</a>
+                            <a href="inspection" class="bg-transparent second-text fw-bold"><i class="fas fa-file"></i> Inspection</a>
                         </li>
                         <li class="list-group text-justify list-group-item bg-transparent list">
-                            <a href="correction" class="bg-transparent second-text fw-bold"><i class="fas fa-receipt"></i>  Correction Fee Payment</a>
+                            <a href="approve" class="bg-transparent second-text fw-bold text-primary"><i class="fas fa-file-archive"></i>  Approved Form</a>
                         </li>
-                        
+                        <li class="list-group text-left list-group-item bg-transparent list">
+                            <a href="pending" class="bg-transparent second-text fw-bold"> <i class="fas fa-file-invoice"></i> Requested Form </a>
+                        </li>
                     <!-- </div> -->
                 </div>
 
-            <a  href="receipt" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-receipt me-2"></i>Reciept</a>
-            <a  href="complete" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="far fa-calendar-check me-2"></i>Completed</a>
+                <!-- end of dropdown -->
+            
                 <a href="../logout" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
+                        
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -111,21 +118,48 @@
                     </ul>
                 </div>
             </nav>
-        </div>
-            <?php
 
+            <div class="data-table">
+              <div class="m-4">
+                    <div class="table-responsive">
+                        <table class="table text-light">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th class="text-light">Ticket #</th>
+                                    <th class="text-light">Permit Type:</th>
+                                    <th class="text-light">Business</th>
+                                    <th class="text-light text-center">Details</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="approve_data">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
+      
+
+       <?php
   }
 
 ?>
 
 
+     
 
- <script type="text/javascript" src="../../assets/js/fontawesome.js"></script>
+
+
+    <script type="text/javascript" src="../../assets/js/fontawesome.js"></script>
     <script src="../../assets/js/jquery-3.4.1.min.js"></script>
     <script src="../../assets/js/function.js"></script>
     <script src="../../assets/js/date.js"></script>
-    <script src="js/notification.js"></script>
-    <script src="../inspector/js/script.js"></script>
+    <!-- <script src="../../assets/vendor/bootstrap/js/bootstrap.js"></script> -->
+    <script src="js/modal.js"></script>
+    <script src="js/approve.js"></script>
+     <script src="../../assets/js/alertify.js"></script>
+    <script src="../../assets/js/alertify.min.js"></script>
 </body>
 </html>

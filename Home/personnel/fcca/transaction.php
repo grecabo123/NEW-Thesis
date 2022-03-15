@@ -49,6 +49,7 @@
     <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="../../assets/img/Icon/logo.png" rel="icon">
      <link href="../../assets/css/user.css" rel="stylesheet">
+     <link href="../../assets/css/market.css" rel="stylesheet">
      <link rel="stylesheet" href="css/fcca.css">
     <title>Fire Code Collecting Agent</title>
 </head>
@@ -61,8 +62,20 @@
                 <a href="index" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
                 <a href="account" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-user-alt me-2"></i>Account</a>
-                <a  href="transaction" class="list-group-item list-group-item-action bg-transparent second-text fw-bold text-primary" style="cursor: pointer;"><i
-            class="fas fa-project-diagram me-2"></i>Transaction</a>
+                 <a id="report" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i
+            class="fas fa-project-diagram me-2"></i>Payment Request &nbsp<i class="fas fa-caret-down" id="caret"></i></a>
+
+            <div class="container-fluid d-block">
+                    <!-- <div class="list-group-item bg-transparent list"> -->
+                        <li class="list-group text-justify list-group-item bg-transparent list">
+                            <a href="transaction" class="bg-transparent second-text fw-bold text-primary"><i class="fas fa-receipt"></i> Pending Payment</a>
+                        </li>
+                        <li class="list-group text-justify list-group-item bg-transparent list">
+                            <a href="correction" class="bg-transparent second-text fw-bold"><i class="fas fa-receipt"></i>  Correction Fee Payment</a>
+                        </li>
+                        
+                    <!-- </div> -->
+                </div>
             <a  href="receipt" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-receipt me-2"></i>Reciept</a>
             <a  href="complete" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="far fa-calendar-check me-2"></i>Completed</a>
                 <a href="../logout" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i

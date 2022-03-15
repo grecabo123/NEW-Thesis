@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2022 at 05:00 PM
+-- Generation Time: Mar 15, 2022 at 04:24 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -483,8 +483,8 @@ CREATE TABLE `tbl_inspection_info` (
 --
 
 INSERT INTO `tbl_inspection_info` (`tbl_inspection_id`, `inspection_no`, `type_buidling`, `date_issued`, `date_inspection`, `nature_of_ion`, `file_upload`, `inspection_order`, `tbl_service_fk`, `correction_fee`, `date_delivered_fcca`) VALUES
-(1, 277807784, 'Business Occupancy Checklist', '', '', 'Building Under Construction', 'TheCodeMagazine.pdf', 'TheCodeMagazine.pdf', 7, 'signature1.PNG', '2022-03-08 02:00:31.000000'),
-(2, 770334466, 'Gasoline Service Station Checklist', '', '', 'Application for Business Permit', 'footnote_to_youth.pdf', '', 9, '', '2022-03-08 02:01:58.000000');
+(1, 277807784, 'Gasoline Service Station Checklist', '2022-03-14', '2022-03-17', 'Application for Business Permit', 'TheCodeMagazine.pdf', 'TheCodeMagazine.pdf', 7, 'signature1.PNG', '2022-03-08 02:00:31.000000'),
+(2, 770334466, 'Gasoline Service Station Checklist', '', '', 'Application for Business Permit', 'footnote_to_youth.pdf', '', 9, 'signature1.PNG', '2022-03-08 02:01:58.000000');
 
 -- --------------------------------------------------------
 
@@ -566,6 +566,7 @@ CREATE TABLE `tbl_report` (
   `tbl_report_id` int(11) NOT NULL,
   `type_of_report` text DEFAULT NULL,
   `Incident_type` varchar(200) DEFAULT NULL,
+  `hazard_type` text NOT NULL,
   `brgy` varchar(200) NOT NULL,
   `landmark` varchar(200) NOT NULL,
   `description` text NOT NULL,
@@ -579,17 +580,17 @@ CREATE TABLE `tbl_report` (
 -- Dumping data for table `tbl_report`
 --
 
-INSERT INTO `tbl_report` (`tbl_report_id`, `type_of_report`, `Incident_type`, `brgy`, `landmark`, `description`, `date_report`, `status`, `account_type`, `report_account_fk`) VALUES
-(1, 'Incident', 'Medical', 'Ambago', 'Diri', '', '2022-02-20 20:34:04.000000', 'View', 'Business', 1),
-(2, 'Incident', 'Rescue', 'Amparo', 'awdaiwhdadad', '', '2022-02-20 20:43:02.000000', 'View', 'User', 2),
-(3, 'Incident', 'Medical', 'Baan KM 3', 'diri', 'wla', '2022-03-06 15:50:21.000000', 'View', 'Business', 3),
-(4, 'Incident', 'Fire Incident', 'Ampayon', 'awkd', 'seajdaef', '2022-03-06 16:23:47.000000', 'View', 'Business', 4),
-(5, 'Incident', 'others', 'Anticala', 'ia', 'aseuifsugfisdgfdgdfh', '2022-03-06 16:24:07.000000', 'View', 'Business', 5),
-(6, 'Hazard', NULL, 'Ambago', 'Diri', 'dawdawdawudgawdhgawdgauwdgawd', '2022-03-06 19:49:10.000000', 'View', 'Business', 6),
-(7, 'Incident', 'Fire Incident', 'Amparo', 'Diri', 'awdjawdihadhwawd', '2022-03-06 20:01:16.000000', 'View', 'User', 7),
-(8, 'Hazard', NULL, 'Ampayon', 'awdhawuidgawuid', 'auwdgaiwugdayiwdayfawdadgiaudgawidugwiue216738521e', '2022-03-06 20:01:47.000000', 'View', 'User', 8),
-(9, 'Hazard', NULL, 'Ambago', 'daw', 'awd', '2022-03-06 20:02:36.000000', 'View', 'User', 9),
-(10, 'Hazard', NULL, 'Antongalon', 'daw', 'awdawd', '2022-03-06 20:03:55.000000', 'pending', 'User', 10);
+INSERT INTO `tbl_report` (`tbl_report_id`, `type_of_report`, `Incident_type`, `hazard_type`, `brgy`, `landmark`, `description`, `date_report`, `status`, `account_type`, `report_account_fk`) VALUES
+(1, 'Incident', 'Medical', '', 'Ambago', 'Diri', '', '2022-02-20 20:34:04.000000', 'View', 'Business', 1),
+(2, 'Incident', 'Rescue', '', 'Amparo', 'awdaiwhdadad', '', '2022-02-20 20:43:02.000000', 'View', 'User', 2),
+(3, 'Incident', 'Medical', '', 'Baan KM 3', 'diri', 'wla', '2022-03-06 15:50:21.000000', 'View', 'Business', 3),
+(4, 'Incident', 'Fire Incident', '', 'Ampayon', 'awkd', 'seajdaef', '2022-03-06 16:23:47.000000', 'View', 'Business', 4),
+(5, 'Incident', 'others', '', 'Anticala', 'ia', 'aseuifsugfisdgfdgdfh', '2022-03-06 16:24:07.000000', 'View', 'Business', 5),
+(6, 'Hazard', NULL, '', 'Ambago', 'Diri', 'dawdawdawudgawdhgawdgauwdgawd', '2022-03-06 19:49:10.000000', 'View', 'Business', 6),
+(7, 'Incident', 'Fire Incident', '', 'Amparo', 'Diri', 'awdjawdihadhwawd', '2022-03-06 20:01:16.000000', 'View', 'User', 7),
+(8, 'Hazard', NULL, '', 'Ampayon', 'awdhawuidgawuid', 'auwdgaiwugdayiwdayfawdadgiaudgawidugwiue216738521e', '2022-03-06 20:01:47.000000', 'View', 'User', 8),
+(9, 'Hazard', NULL, '', 'Ambago', 'daw', 'awd', '2022-03-06 20:02:36.000000', 'View', 'User', 9),
+(10, 'Hazard', NULL, '', 'Antongalon', 'daw', 'awdawd', '2022-03-06 20:03:55.000000', 'pending', 'User', 10);
 
 -- --------------------------------------------------------
 
@@ -616,7 +617,15 @@ INSERT INTO `tbl_report_account` (`report_id`, `account_fk`) VALUES
 (7, 2),
 (8, 2),
 (9, 2),
-(10, 2);
+(10, 2),
+(11, 1),
+(12, 1),
+(13, 1),
+(14, 1),
+(15, 1),
+(16, 1),
+(17, 1),
+(18, 1);
 
 -- --------------------------------------------------------
 
@@ -660,9 +669,9 @@ INSERT INTO `tbl_service_type` (`tbl_service_id`, `service_type`, `business_perm
 (4, 'FSEC-Permit', NULL, NULL, 'face-with-pleading-eyes_1f97a.png', NULL, NULL, NULL, NULL, 'face-with-pleading-eyes_1f97a.png', 'face-with-pleading-eyes_1f97a.png', 'face-with-pleading-eyes_1f97a.png', '359621b69d987839', 953185, '2022-03-07 14:07:36.000000', 'OK', 'OK', 'OK', '', 'OK', 'OK', 4, 1),
 (5, 'FSIC-Occupancy Permit', NULL, NULL, 'dps.png', 'dps.png', 'dps.png', 'dps.png', 'dps.png', NULL, NULL, NULL, '667621b6e900e4ba', 690950, '2022-03-01 19:35:09.000000', 'lacking', ' ', ' ', '', ' ', ' ', 5, 1),
 (6, 'FSIC-Business Permit', 'dps.png', 'dps.png', 'dps.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '3006221f73a97e1b', 153193, '2022-03-06 14:34:13.000000', 'lacking', '', '', '', '', '', 6, 1),
-(7, 'FSIC-Business Permit', 'dps.png', 'dps.png', 'dps.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '4016226331714776', 858174, '2022-03-12 00:40:40.000000', 'OK', 'OK', 'pending', 'Comply', ' ', ' ', 7, 1),
+(7, 'FSIC-Business Permit', 'dps.png', 'dps.png', 'dps.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '4016226331714776', 858174, '2022-03-12 00:40:40.000000', 'OK', 'OK', 'pending', 'Approved', ' ', ' ', 7, 1),
 (8, 'FSEC-Permit', NULL, NULL, 'ruina.png', NULL, NULL, NULL, NULL, 'ruina.png', 'ruina.png', 'ruina.png', '7036226334a5ab43', 485817, '2022-03-08 00:31:06.000000', 'OK', 'Done', 'Paid', 'N/A', '', '', 8, 1),
-(9, 'FSIC-Occupancy Permit', NULL, NULL, 'plead.png', 'plead.png', 'plead.png', 'plead.png', 'plead.png', NULL, NULL, NULL, '5296226336cb0f9d', 376599, '2022-03-08 00:31:40.000000', 'OK', 'Done', 'Paid', 'Correction', '', '', 9, 1),
+(9, 'FSIC-Occupancy Permit', NULL, NULL, 'plead.png', 'plead.png', 'plead.png', 'plead.png', 'plead.png', NULL, NULL, NULL, '5296226336cb0f9d', 376599, '2022-03-14 22:15:10.000000', 'OK', 'Done', 'Done', 'pending', '', '', 9, 1),
 (10, '', NULL, NULL, '', NULL, NULL, NULL, NULL, '', '', '', '196622b84d9ce38c', 175287, '2022-03-12 01:20:25.000000', 'pending', '', '', '', '', '', 10, 1),
 (11, 'FSEC-Permit', NULL, NULL, 'signature1.PNG', NULL, NULL, NULL, NULL, 'face-with-pleading-eyes_1f97a.png', 'ruina.png', 'signature1.PNG', '451622cb49e5f523', 171679, '2022-03-12 22:56:30.000000', 'pending', '', '', '', '', '', 11, 1);
 
@@ -922,7 +931,7 @@ ALTER TABLE `tbl_report`
 -- AUTO_INCREMENT for table `tbl_report_account`
 --
 ALTER TABLE `tbl_report_account`
-  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tbl_service_type`

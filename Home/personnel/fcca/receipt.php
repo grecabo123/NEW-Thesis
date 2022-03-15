@@ -49,20 +49,34 @@
     <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="../../assets/img/Icon/logo.png" rel="icon">
      <link href="../../assets/css/user.css" rel="stylesheet">
+     <link href="../../assets/css/market.css" rel="stylesheet">
     <title>Fire Code Collecting Agent</title>
 </head>
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-dark-color" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail" width="100" height="100"><br><span class="text-muted"><span style="font-size: 15px;">Fire Code Collecting Agent</span><span class="text-muted" style="font-size: 12px; vertical-align: middle;">  <br><span><?php echo $fname." ".$lname."<br>".$position; ?></span></span></span></div>
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail" width="100" height="100"><br><span class="text-muted"><span style="font-size: 15px;">Fire Code Collecting Agent</span><span class="text-muted" style="font-size: 12px; vertical-align: middle;"> <br> <span><?php echo $fname." ".$lname."<br>".$position; ?></span> <br></span></span></div>
             <div class="list-group list-group-flush my-3">
-                <a href="index" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="index" class="list-group-item list-group-item-action bg-transparent second-text fw-bold text-primary"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
                 <a href="account" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-user-alt me-2"></i>Account</a>
-                <a  href="transaction" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i
-            class="fas fa-project-diagram me-2"></i>Transaction</a>
-            <a  href="receipt" class="list-group-item list-group-item-action bg-transparent second-text fw-bold text-primary" style="cursor: pointer;"><i class="fas fa-receipt me-2"></i>Reciept</a>
+               <a id="report" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i
+            class="fas fa-project-diagram me-2"></i>Payment Request &nbsp<i class="fas fa-caret-down" id="caret"></i></a>
+
+            <div class="container-fluid dropdown">
+                    <!-- <div class="list-group-item bg-transparent list"> -->
+                        <li class="list-group text-justify list-group-item bg-transparent list">
+                            <a href="transaction" class="bg-transparent second-text fw-bold"><i class="fas fa-receipt"></i> Pending Payment</a>
+                        </li>
+                        <li class="list-group text-justify list-group-item bg-transparent list">
+                            <a href="correction" class="bg-transparent second-text fw-bold"><i class="fas fa-receipt"></i>  Correction Fee Payment</a>
+                        </li>
+                        
+                    <!-- </div> -->
+                </div>
+
+            <a  href="receipt" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-receipt me-2"></i>Reciept</a>
             <a  href="complete" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="far fa-calendar-check me-2"></i>Completed</a>
                 <a href="../logout" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
@@ -97,25 +111,6 @@
                     </ul>
                 </div>
             </nav>
-            <div class="data-table">
-              <div class="m-4">
-                <h3 class="text-light">Receipt</h3>
-                    <div class="table-responsive">
-                        <table class="table text-light">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th class="text-light">Ticket #</th>
-                                    <th class="text-light">Permit Type:</th>
-                                    <th class="text-light">Business</th>
-                                </tr>
-                            </thead>
-                            <tbody id="table_data">
-                               
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
         </div>
             <?php
 
@@ -131,5 +126,6 @@
     <script src="../../assets/js/function.js"></script>
     <script src="../../assets/js/date.js"></script>
     <script src="js/notification.js"></script>
+    <script src="../inspector/js/script.js"></script>
 </body>
 </html>

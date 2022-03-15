@@ -91,7 +91,7 @@
                 </div>
                 <!-- end of dropdown -->
                 <a href="instruction.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-chalkboard-teacher me-2"></i>Instruction</a>
-                <a href="../logout/logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                <a href="../logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
             </div>
         </div>
@@ -155,7 +155,7 @@
                                 $result = mysqli_query($conn,$sql);
                                 if (mysqli_num_rows($result) > 0) {
                                     ?>
-                                    <select name="brgy" class="form-control" id="brgy">
+                                    <select name="brgy" class="form-select" id="brgy">
                                         <?php
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         $brgy = $row['Barangay'];
@@ -168,6 +168,16 @@
                                 <?php
                                 }
                             ?>
+                        </div>
+                        <div class="mt-3 mb-4">
+                            <label for="">Hazard Type</label>
+                            <select name="" id="hazard_type" class="form-select">
+                                <option value="" selected disabled>Please Select</option>
+                                <option value="Chemical">Chemical</option>
+                                <option value="Physical/Insfastructure">Physical/Insfastructure - old building </option>
+                                <option value="Safety">Safety - electrical, tripwire, tripping hazard</option>
+                                <option value="Environmental">Environmental - Manhole, Landslide</option>
+                            </select>
                         </div>
                          
                        <div class="mb-7">

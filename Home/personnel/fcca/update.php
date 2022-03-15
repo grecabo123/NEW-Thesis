@@ -69,6 +69,16 @@
 			}
 		}
 	}
+	else if (isset($_POST['update_correction'])) {
+		$id = mysqli_real_escape_string($conn,$_POST['id']);
+
+
+		$update = "UPDATE tbl_service_type SET inspection='pending',fcca='Done' WHERE tbl_service_id = $id";
+
+		if (mysqli_query($conn,$update) === TRUE) {
+			echo 1;
+		}
+	}
 
 
 ?>

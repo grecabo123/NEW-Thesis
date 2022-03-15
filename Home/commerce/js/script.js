@@ -13,7 +13,9 @@ $(document).ready(function() {
 		var landmark = $('#landmark').val();
 		var des = $('#description_hazard').val();
 
-		console.log(str);
+		var type_hazard = $('#hazard_type').val();
+
+		console.log(type_hazard);
 
 		$.ajax({
 			url: "report",
@@ -24,8 +26,10 @@ $(document).ready(function() {
 				brgy:brgy,
 				landmark:landmark,
 				des:des,
+				type_hazard:type_hazard,
 			},
 			success:function(response){
+				console.log(response);
 				if (response == "Done") {
 					$('.center_sp').addClass('bg-spin');
 					$('.hide').css('display', 'block');

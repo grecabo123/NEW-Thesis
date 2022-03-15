@@ -50,32 +50,32 @@
     <link href="../../assets/img/Icon/logo.png" rel="icon">
      <link href="../../assets/css/user.css" rel="stylesheet">
      <link href="../../assets/css/market.css" rel="stylesheet">
+     <link rel="stylesheet" href="css/fcca.css">
     <title>Fire Code Collecting Agent</title>
 </head>
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-dark-color" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail" width="100" height="100"><br><span class="text-muted"><span style="font-size: 15px;">Fire Code Collecting Agent</span><span class="text-muted" style="font-size: 12px; vertical-align: middle;"> <br> <span><?php echo $fname." ".$lname."<br>".$position; ?></span> <br></span></span></div>
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail" width="100" height="100"><br><span class="text-muted"><span style="font-size: 15px;">Fire Code Collecting Agent</span><span class="text-muted" style="font-size: 12px; vertical-align: middle;">  <br><span><?php echo $fname." ".$lname."<br>".$position; ?></span></span></span></div>
             <div class="list-group list-group-flush my-3">
-                <a href="index" class="list-group-item list-group-item-action bg-transparent second-text fw-bold text-primary"><i
+                <a href="index" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
                 <a href="account" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-user-alt me-2"></i>Account</a>
-               <a id="report" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i
+                 <a id="report" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i
             class="fas fa-project-diagram me-2"></i>Payment Request &nbsp<i class="fas fa-caret-down" id="caret"></i></a>
 
-            <div class="container-fluid dropdown">
+            <div class="container-fluid d-block">
                     <!-- <div class="list-group-item bg-transparent list"> -->
                         <li class="list-group text-justify list-group-item bg-transparent list">
                             <a href="transaction" class="bg-transparent second-text fw-bold"><i class="fas fa-receipt"></i> Pending Payment</a>
                         </li>
                         <li class="list-group text-justify list-group-item bg-transparent list">
-                            <a href="correction" class="bg-transparent second-text fw-bold"><i class="fas fa-receipt"></i>  Correction Fee Payment</a>
+                            <a href="correction" class="bg-transparent second-text fw-bold text-primary"><i class="fas fa-receipt"></i>  Correction Fee Payment</a>
                         </li>
                         
                     <!-- </div> -->
                 </div>
-
             <a  href="receipt" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-receipt me-2"></i>Reciept</a>
             <a  href="complete" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="far fa-calendar-check me-2"></i>Completed</a>
                 <a href="../logout" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
@@ -111,8 +111,112 @@
                     </ul>
                 </div>
             </nav>
+
+            <div class="search">
+              <div class="container">
+              <div class="col-md-12 col-lg-12 col-sm-12" >
+                <span class="text-light fs-4 mt-2" >Correction Fee </span>
+              </div>
+              <!-- <div class="col-md-4 mt-3">
+                  <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Enter Number" id="data_number">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-primary normal" onclick="Search();">Seach</button>
+                        <button class="btn btn-primary loading_hide" type="button" disabled>
+                           <span class="spinner-border spinner-border-sm " role="status" aria-hidden="true"></span>
+                                Searching...
+                        </button>
+                      </div>
+                    </div>
+              </div> -->
+               <span class="text-danger error_hide"></span>
+            </div>
+            </div>
+
+
+            <div class="data-table">
+              <div class="m-4">
+                    <div class="table-responsive">
+                        <table class="table text-light">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th class="text-light">Ticket #</th>
+                                    <th class="text-light">Permit Type:</th>
+                                    <th class="text-light">Business Name</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table_data">
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
         </div>
+
+
+        <!-- modal for correction data -->
+        <div class="correction">
+          <div class="modal-content w-75">
+              <div class="modal-header bg-secondary">
+                  <div class="col-md-8">
+                      <h3 class="text-left modal-title fw-bold">FSEC Building Permit</h3>
+                  </div>
+              </div>
+
+              <!-- modal body -->
+              <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="" class="form-label text-secondary">
+                        Name of Owner
+                      </label>
+                      <input type="text" readonly id="owner_name" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                      <label for="" class="form-label text-secondary">
+                        Name of Establishment
+                      </label>
+                      <input type="text" readonly id="esta" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                      <label for="" class="form-label text-secondary">
+                        Inspection Reference Number:
+                      </label>
+                      <input type="text" readonly id="inspection_ref" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="col md-6 mt-4 mb-3">
+                    <div class="container">
+                      <img src="" alt="image" width="200" height="200" class="img-fluid correction_file">
+                    </div>
+                  </div>
+
+                  <!-- File pdf -->
+                  <div class="col-md-6 mt-4">
+                    <a class="btn btn-outline btn-primary" id="pdf">View PDF</a>
+                  </div>
+                  <!-- end of file PDF -->
+
+                </div>
+
+                <!-- end of modal body -->
+                <div class="modal-footer">
+                    <button class="btn btn-outline btn-secondary" onclick="Close_modal();">Close</button>
+                    <button class="btn btn-outline btn-primary" id="proceed">Proceed</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- end of correction data -->
             <?php
+
+
+
 
 
   }
@@ -125,7 +229,6 @@
     <script src="../../assets/js/jquery-3.4.1.min.js"></script>
     <script src="../../assets/js/function.js"></script>
     <script src="../../assets/js/date.js"></script>
-    <script src="js/notification.js"></script>
-    <script src="../inspector/js/script.js"></script>
+    <script src="js/correction.js"></script>
 </body>
 </html>

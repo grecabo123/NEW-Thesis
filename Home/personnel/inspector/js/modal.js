@@ -15,7 +15,7 @@ $(document).ready(function(){
 				id:id,
 			},
 			success:function(response){
-				console.log(response);
+				// console.log(response);
 				if (response == 2) {
 					
 				}
@@ -25,7 +25,8 @@ $(document).ready(function(){
 						 $('#establishmest').prop('value',val['business_name']);
 						 $('#send_save').prop('value',val['tbl_inspection_id']);
 						 $('#inspection_no').prop('value',val['inspection_no']);
-						 
+						 // console.log(val['nature_of_ion']);
+						 $('input[name="ion"]').val(val['nature_of_ion']);
 					});
 				}
 			}
@@ -77,7 +78,13 @@ $(document).ready(function(){
 		var ion = $('input[name="ion"]:checked').val();
 		var type_building = $('#building').val();
 
-		// console.log(data_id);
+		var date_issue = $('#date_issued').val();
+		var date_inspection = $('#date_inspection').val();
+
+
+		// console.log(date_issue);
+
+		console.log(data_id);
 
 		$.ajax({
 			url: "search",
@@ -87,6 +94,8 @@ $(document).ready(function(){
 				data_id:data_id,
 				ion:ion,
 				type_building:type_building,
+				date_issue:date_issue,
+				date_inspection:date_inspection,
 			},
 			success:function(response){
 				// console.log(response);

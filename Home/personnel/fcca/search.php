@@ -40,6 +40,27 @@
 			echo 2;
 		}
 	}
+	else if (isset($_POST['correction'])) {
+		$id = mysqli_real_escape_string($conn,$_POST['id']);
+
+		$search_data = "SELECT *FROM tbl_service_type as service JOIN tbl_inspection_info as inspection ON service.tbl_service_id = inspection.tbl_service_fk JOIN tbl_client_info as client ON service.tbl_info_fk = client.client_info_id WHERE service.tbl_service_id= $id";
+
+		$result_val = [];
+		$result_q = mysqli_query($conn,$search_data);
+		if (mysqli_num_rows($result_q) > 0) {
+			foreach ($result_q as $value) {
+			    array_push($result_val,$value);
+			    // break;
+
+			}
+			header("Content-type: application/json");
+			echo json_encode($result_val);
+
+		}
+		else{
+			echo 2;
+		}
+	}
 ?>
 
 <?php  

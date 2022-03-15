@@ -71,10 +71,10 @@
                             <a href="inspection" class="bg-transparent second-text fw-bold"><i class="fas fa-file"></i> Inspection</a>
                         </li>
                         <li class="list-group text-justify list-group-item bg-transparent list">
-                            <a href="record" class="bg-transparent second-text fw-bold text-primary"><i class="fas fa-file-archive"></i>  Recorded Form</a>
+                            <a href="record" class="bg-transparent second-text fw-bold text-primary"><i class="fas fa-file-archive"></i>  Approved Form</a>
                         </li>
                         <li class="list-group text-left list-group-item bg-transparent list">
-                            <a href="pending" class="bg-transparent second-text fw-bold"> <i class="fas fa-file-invoice"></i> Pending Inspection</a>
+                            <a href="pending" class="bg-transparent second-text fw-bold"> <i class="fas fa-file-invoice"></i> Requested Form </a>
                         </li>
                     <!-- </div> -->
                 </div>

@@ -65,16 +65,16 @@
         <a id="report" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i
             class="fas fa-project-diagram me-2"></i>Request &nbsp<i class="fas fa-caret-down" id="caret"></i></a>
              <!-- dropdownb -->
-                <div class="container-fluid dropdown">
+               <div class="container-fluid dropdown">
                     <!-- <div class="list-group-item bg-transparent list"> -->
                         <li class="list-group text-justify list-group-item bg-transparent list">
-                            <a href="form" class="bg-transparent second-text fw-bold">Request Form</a>
+                            <a href="inspection" class="bg-transparent second-text fw-bold"><i class="fas fa-file"></i> Inspection</a>
                         </li>
                         <li class="list-group text-justify list-group-item bg-transparent list">
-                            <a href="complete" class="bg-transparent second-text fw-bold">Completed Form</a>
+                            <a href="record" class="bg-transparent second-text fw-bold"><i class="fas fa-file-archive"></i>  Approved Form</a>
                         </li>
                         <li class="list-group text-left list-group-item bg-transparent list">
-                            <a href="paid" class="bg-transparent second-text fw-bold">FCCA Paid</a>
+                            <a href="pending" class="bg-transparent second-text fw-bold"> <i class="fas fa-file-invoice"></i> Requested Form</a>
                         </li>
                     <!-- </div> -->
                 </div>

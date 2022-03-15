@@ -29,9 +29,11 @@
 		$data_id = mysqli_real_escape_string($conn,$_POST['data_id']);
 		$ion = mysqli_real_escape_string($conn,$_POST['ion']);
 		$building = mysqli_real_escape_string($conn,$_POST['type_building']);
+		$date_issue = mysqli_real_escape_string($conn,$_POST['date_issue']);
+		$date_inspection = mysqli_real_escape_string($conn,$_POST['date_inspection']);
 
 
-		$update = "UPDATE tbl_inspection_info as inspection JOIN tbl_service_type as service ON inspection.tbl_service_fk = service.tbl_service_id SET inspection.nature_of_ion='$ion',inspection.type_buidling='$building',service.inspection='On Process' WHERE inspection.tbl_inspection_id = $data_id";
+		$update = "UPDATE tbl_inspection_info as inspection JOIN tbl_service_type as service ON inspection.tbl_service_fk = service.tbl_service_id SET inspection.nature_of_ion='$ion',inspection.type_buidling='$building',inspection.date_issued='$date_issue',inspection.date_inspection='$date_inspection',service.inspection='On Process' WHERE inspection.tbl_inspection_id = $data_id";
 		if (mysqli_query($conn,$update) === TRUE) {
 			echo 1;
 		}
