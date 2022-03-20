@@ -28,6 +28,17 @@ CAW-12-68695-ZAW
 ?>
 
 
+  <?php  
+
+    include 'get/incident.php';
+    
+    foreach ($result_i as $value) {
+            $incident_type[] = $value['Incident_Type'];
+            $total_incident[] = $value['total'];
+        }
+    ?>
+
+
 docs/ xls
 
 && $('#building_certificate')[0].files[0].length === 1 && $('#electrical')[0].files[0].length === 1 && $('#bfp_or')[0].files[0].length === 1 && $('#fsec_clearance')[0].files[0].length === 1

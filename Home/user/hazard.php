@@ -170,6 +170,17 @@
                                 }
                             ?>
                         </div>
+
+                        <div class="mt-3 mb-4">
+                            <label for="">Hazard Type</label>
+                            <select name="" id="hazard_type" class="form-select">
+                                <option value="" selected disabled>Please Select</option>
+                                <option value="Chemical">Chemical</option>
+                                <option value="Physical/Insfastructure">Physical/Insfastructure - old building </option>
+                                <option value="Safety">Safety - electrical, tripwire, tripping hazard</option>
+                                <option value="Environmental">Environmental - Manhole, Landslide</option>
+                            </select>
+                        </div>
                          
                        <div class="mb-7">
                             <label for="" class="form-label">

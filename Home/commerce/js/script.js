@@ -29,7 +29,7 @@ $(document).ready(function() {
 				type_hazard:type_hazard,
 			},
 			success:function(response){
-				console.log(response);
+				// console.log(response);
 				if (response == "Done") {
 					$('.center_sp').addClass('bg-spin');
 					$('.hide').css('display', 'block');

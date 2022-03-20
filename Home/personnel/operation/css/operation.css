@@ -1,3 +1,20 @@
-.data_report_business{
+.data_report_business,.field_date_report,.count_text,.btn_count{
 	display: none;
+}
+.field_date_report.show,.count_text.show{
+	display: block;
+}
+.size_chart{
+	position: relative;
+	width: 80vw;
+	height: 50vh;
+	padding: 9px 10px;
+	background-color: #81B8EA;
+}
+.list_btn_head ul li{
+	display: inline-block;
+	margin: 0px 7px;
+}
+.list_btn ul li{
+	margin: 0px 10px;
 }

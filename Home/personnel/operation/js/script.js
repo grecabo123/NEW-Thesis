@@ -18,6 +18,69 @@ $(document).ready(function(){
 		}
 	});
 
+	$('.more').click(function(event) {
+		/* Act on the event */
+		$('.more_modal').addClass('bg-active');
+	});
+
+	$('.close_more').click(function(event) {
+		/* Act on the event */
+		// console.log('dwa');
+		$('.more_modal').removeClass('bg-active');
+		$('.field_date_report').removeClass('show')
+		$('.count_text').removeClass('show');
+	});
+	$('.calculator').click(function(event) {
+		/* Act on the event */
+		$('.field_date_report').toggleClass('show');
+	});
+
+	$('#count').click(function(event) {
+		/* Act on the event */
+		var from = $('#from_date').val();
+		var to = $('#to_date').val();
+
+		// console.log(from);
+
+		if (from != "" && to != "") {
+
+			$.ajax({
+				url: "get/count",
+				type: "POST",
+				dataType: "json",
+				data: {
+					"counting" : true,
+					from:from,
+					to:to,
+				},
+				
+				success:function(data){
+					$('.btn_count').css('display', 'block');
+					$('#count').css('display', 'none');
+					// console.log(data.notification);
+					if (data.notification > 0) {
+						setTimeout(function(){
+							const from_d = new Date(from);
+							const to_d = new Date(to);
+							$('.count_text').addClass('show');
+							$('#from').text(from_d);
+							$('#to').text(to_d);
+							$('#total_report').text(data.notification);
+							$('.btn_count').css('display', 'none');
+							$('#count').css('display', 'block');
+						},2000)
+					}
+					else{
+						console.log("wad");	
+					}
+				}
+			});
+		}
+		else{
+			alert("You Must Insert a Date");
+		}
+	});
+
 });
 
 
@@ -74,3 +137,6 @@ setInterval(function(){
 setInterval(function(){
 	load_report_hazard();
 },2700);
+
+
+

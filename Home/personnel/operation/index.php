@@ -51,6 +51,8 @@
     <link href="../../assets/img/Icon/logo.png" rel="icon">
      <link href="../../assets/css/user.css" rel="stylesheet">
      <link href="../../assets/css/market.css" rel="stylesheet">
+     <link rel="stylesheet" href="css/operation.css">
+     <script src="../../assets/js/chart.js"></script>
     <title>Chief Operation</title>
 </head>
 <body>
@@ -91,7 +93,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left text-muted fs-4 me-3" id="menu-toggle"></i>
-                    <!-- <h2 class="fs-2 m-0 ">Dashboard</h2> -->
+                    <center><h2 class="fs-4 m-0 text-light">Statistic Report</h2></center>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -113,12 +115,156 @@
                     </ul>
                 </div>
             </nav>
+
+
+
+
+            <div class="container">
+              <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-4">
+                  &nbsp<button class="btn btn-secondary btn-sm" onclick="Refresh();"><i class="fas fa-sync"></i> Refresh</button>
+                  &nbsp<button class="btn btn-secondary btn-sm more"><i class="fas fa-info-circle text-light"></i> More</button>
+                </div>
+                <center><h3 class="text-light mt-2 fs-5">Incident Report (Business)</h3></center>
+              </div>
+            </div> 
+            </div>
+
+
+
+            <div class="container size_chart bg-light mt-2 rounded">
+
+              <canvas id="myChart"></canvas>
+            </div>
+
+            <br>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <center><h3 class="text-light mt-2 fs-5">Hazard Report (Business)</h3></center>
+                </div>
+              </div>
+            </div>
+            <div class="container size_chart bg-light mt-2 rounded">
+              <!-- <button class="btn btn-prmary">awd</button> -->
+              <canvas id="myChart_hazard"></canvas>
+            </div>
+            
+
+            <div class="more_modal">
+              <div class="container w-75">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header bg-secondary">
+                      <div class="modal-title">
+                        <center><h3 class="text-light fs-4"><i class="fas fa-info-circle"></i> More</h3></center>
+                      </div>
+                    </div>
+
+                    <!-- modal body -->
+                    <div class="modal-body">
+                      <div class="container">
+                        <div class="btn_more">
+                          <ul class="list-group list-group-horizontal list_btn">
+                            <li class="list-group" style="margin: 0px 10px;"><button class="btn btn-primary btn-sm"> <i class="fas fa-user-circle"></i> User Report</button></li>
+                            <li class="list-group" style="margin: 0px 10px;"><button class="btn btn-primary btn-sm calculator"> <i class="fas fa-calculator"></i>  Count Report</button></li>
+                            <li class="list-group" style="margin: 0px 10px;"><button class="btn btn-primary btn-sm">User Report</button></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <hr>
+                      <!-- count report -->
+                      <div class="field_date_report">
+                        <div class="container mt-2">
+                          <div class="row">
+                            <center><h3 class="fs-5">Range Date</h3></center>
+                            <div class="col-md-6">
+                              <div class="input_field">
+                                <label for="">
+                                  From
+                                </label>
+                                <input type="date" id="from_date" class="form-control">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="input_field">
+                                <label for="">
+                                  To
+                                </label>
+                                <input type="date" id="to_date" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+                            <div class="modal-footer mt-2">
+                            <button class="btn btn-sm btn-primary" id="count"> <i class="fas fa-search"></i> Count</button>
+                            <button class="btn btn-primary btn-sm btn_count" type="button" disabled>
+                              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                              Counting...
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end of count report -->
+
+                      
+                      <div class="count_text">
+                        <div class="container">
+                        <div class="total_report">
+                          <span>Total Receive Report From <span id="from"><strong id="from_date_text"></strong></span> To <span id="to"><strong></strong></span><br><span class="text-secondary fs-6">Total: <span class="text-success"><strong id="total_report"></strong></span></span></span>
+                          <br>
+                          <!-- <button class="btn btn-sm btn-info">Details</button> -->
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                    <!-- end of modal body -->
+
+                    <div class="modal-footer">
+                      <button class="btn btn-sm btn-secondary close_more">Close</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
         </div>
+
+
+
 
        <?php
   }
 
 ?>
+
+
+    
+    <?php  
+
+    include 'get/business_report.php';
+    
+    foreach ($result_i as $value) {
+            $incident_type[] = $value['Incident_type'];
+            $total_incident[] = $value['total'];
+        }
+    ?>
+
+    <?php  
+
+    include 'get/business_hazard.php';
+    
+    foreach ($result_i as $value) {
+            $hazard_type[] = $value['hazard_type'];
+            $total[] = $value =['total'];
+        }
+    ?>
+
+
+
      
 
 
@@ -128,6 +274,193 @@
     <script src="../../assets/js/function.js"></script>
     <script src="../../assets/js/date.js"></script>
     <script src="js/script.js"></script>
+
+    <script>
+
+
+      //Incident Report
+      const labels = <?php echo json_encode($incident_type); ?>;
+        let delayed;
+        
+      var e = document.getElementById("myChart").getContext("2d");
+
+    gradientFill = e.createLinearGradient(60, 0, 10, 300);
+    gradientFill.addColorStop(0, "#81B8EA");
+    gradientFill.addColorStop(1, "#81B8EA");
+
+    const config = {
+      type: "bar",
+      data: {
+        labels: <?php echo json_encode($incident_type); ?>,
+        datasets: [{
+          label: "Incident Report",
+          backgroundColor: gradientFill,
+          borderColor: "#2CA8FF",
+          pointBorderColor: "#FFF",
+          pointBackgroundColor: "#2CA8FF",
+          pointBorderWidth: 2,
+          pointHoverRadius: 4,
+          pointHoverBorderWidth: 1,
+          pointRadius: 4,
+          fill: true,
+          borderWidth: 1,
+          data: <?php echo json_encode($total_incident); ?>
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        legend: {
+          display: true
+        },
+        tooltips: {
+          bodySpacing: 4,
+          mode: "nearest",
+          intersect: 0,
+          position: "nearest",
+          xPadding: 10,
+          yPadding: 10,
+          caretPadding: 10
+        },
+        responsive: 1,
+        scales: {
+          yAxes: [{
+            gridLines: 0,
+            gridLines: {
+              zeroLineColor: "transparent",
+              drawBorder: false
+            }
+          }],
+          xAxes: [{
+            display: 0,
+            gridLines: 0,
+            ticks: {
+              display: false
+            },
+            gridLines: {
+              zeroLineColor: "transparent",
+              drawTicks: false,
+              display: false,
+              drawBorder: false
+            }
+          }]
+        },
+        layout: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: 15,
+            bottom: 15
+          }
+        }
+      }
+    };
+
+
+      let bar = new Chart(
+        document.getElementById('myChart').getContext("2d"),
+        config
+      );
+
+
+      function Refresh(){
+            // console.log("1234");
+            bar.destroy();
+            bar = new Chart(
+            document.getElementById('myChart').getContext("2d"),
+            config
+          );
+      }
+
+
+
+
+      //Hazard Report
+
+      const labels_hazard = <?php echo json_encode($hazard_type); ?>;
+        let delayed_hazard;
+        
+      var e = document.getElementById("myChart_hazard").getContext("2d");
+
+    gradientFill = e.createLinearGradient(60, 0, 10, 300);
+    gradientFill.addColorStop(0, "#81B8EA");
+    gradientFill.addColorStop(1, "#81B8EA");
+
+    const config_hazard = {
+      type: "bar",
+      data: {
+        labels: <?php echo json_encode($hazard_type); ?>,
+        datasets: [{
+          label: "Hazard Report",
+          backgroundColor: gradientFill,
+          borderColor: "#2CA8FF",
+          pointBorderColor: "#FFF",
+          pointBackgroundColor: "#2CA8FF",
+          pointBorderWidth: 2,
+          pointHoverRadius: 4,
+          pointHoverBorderWidth: 1,
+          pointRadius: 4,
+          fill: true,
+          borderWidth: 1,
+          data: <?php echo json_encode($total_incident); ?>
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        legend: {
+          display: true
+        },
+        tooltips: {
+          bodySpacing: 4,
+          mode: "nearest",
+          intersect: 0,
+          position: "nearest",
+          xPadding: 10,
+          yPadding: 10,
+          caretPadding: 10
+        },
+        responsive: 1,
+        scales: {
+          yAxes: [{
+            gridLines: 0,
+            gridLines: {
+              zeroLineColor: "transparent",
+              drawBorder: false
+            }
+          }],
+          xAxes: [{
+            display: 0,
+            gridLines: 0,
+            ticks: {
+              display: false
+            },
+            gridLines: {
+              zeroLineColor: "transparent",
+              drawTicks: false,
+              display: false,
+              drawBorder: false
+            }
+          }]
+        },
+        layout: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: 15,
+            bottom: 15
+          }
+        }
+      }
+    };
+
+
+      let bar_hazard = new Chart(
+        document.getElementById('myChart_hazard').getContext("2d"),
+        config_hazard
+      );
+
+
+    </script>
+
 
 
 </body>

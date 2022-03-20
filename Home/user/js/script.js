@@ -52,6 +52,7 @@ $(document).ready(function(){
 		var brgy = $('#brgy').val();
 		var landmark = $('#landmark').val();
 		var des = $('#descrip').val();
+		var type_haz = $('#hazard_type').val();
 		$.ajax({
 			url: "report",
 			type: "POST",
@@ -61,9 +62,11 @@ $(document).ready(function(){
 				brgy:brgy,
 				landmark:landmark,
 				des:des,
+				type_haz:type_haz,
+
 			},
 			success:function(response){
-				console.log(response);
+				// console.log(response);
 				if (response == "Done") {
 					$('.center_sp').addClass('bg-spin');
 					$('.hide').css('display', 'block');
@@ -74,7 +77,13 @@ $(document).ready(function(){
 					},3000);
 				}
 				else{
-
+					$('.center_sp').addClass('bg-spin');
+					$('.hide').css('display', 'block');
+					$('#hazard').css('display', 'none');
+					setTimeout(function(){
+						alertify.error("Something went wrong");
+						window.location = "hazard";	
+					},3000);
 				}
 			}
 		});

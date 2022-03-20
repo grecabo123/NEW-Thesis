@@ -25,7 +25,7 @@
                 <link rel="stylesheet" href="../assets/css/user.css"/>
                 <link rel="stylesheet" href="../assets/css/style.css"/>
                 <link href="../assets/img/Icon/logo.png" rel="icon">
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script src="../assets/js/chart.js"></script>
                 <title>Admin</title>
             </head>
             <body>
@@ -170,10 +170,10 @@
 ?>
 
     <?php  
-        include 'fetch.php';
+        include 'get/fetch.php';
 
         foreach ($result as $value) {
-            $type[] = $value['Service_type'];
+            $type[] = $value['service_type'];
             $total[] = $value['total'];
         }
 
@@ -181,7 +181,7 @@
 
     <?php  
 
-    include 'incident.php';
+    include 'get/incident.php';
     
     foreach ($result_i as $value) {
             $incident_type[] = $value['Incident_Type'];
@@ -189,13 +189,15 @@
         }
     ?>
 
+  
+
     
     <script type="text/javascript" src="../assets/js/jquery-3.4.1.min.js"></script>
      <!-- <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script> -->
     <script type="text/javascript" src="js/demo.js"></script>
     <script type="text/javascript" src="js/admin.js"></script>
     <script type="text/javascript" src="../assets/js/date.js"></script>
-    <script type="text/javascript" src="../js/validation.js"></script>
+    
 
 
     <!-- forms -->
