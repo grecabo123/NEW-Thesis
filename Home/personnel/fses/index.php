@@ -59,7 +59,7 @@
         <div class="bg-dark-color" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../assets/img/Icon/logo.png" alt="Logo" class="img-thumbmail" width="100" height="100"><br><span class="text-muted"><span style="font-size: 15px;">Chief Fses</span><span class="text-muted" style="font-size: 12px; vertical-align: middle;">  <br><?php echo $fname." ".$lname."<br>".$position; ?></span></span></div>
             <div class="list-group list-group-flush my-3">
-                <a href="index" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="index" class="list-group-item list-group-item-action bg-transparent second-text fw-bold text-primary"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
                 <a href="account" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-user-alt me-2"></i>Account</a>
 				<a id="form" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i
@@ -77,7 +77,7 @@
                 </div>
 
                 <!-- end of dropdown -->
-            
+              <a href="log" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-user-clock me-2"></i>Activity Log</a>
                 <a href="../logout" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
                         

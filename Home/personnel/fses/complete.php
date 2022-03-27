@@ -77,7 +77,7 @@
                 </div>
 
                 <!-- end of dropdown -->
-           
+            <a href="log" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-user-clock me-2"></i>Activity Log</a>
                 <a href="../logout" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
                         
@@ -112,6 +112,27 @@
                     </ul>
                 </div>
             </nav>
+
+             <div class="data-table">
+              <div class="m-4">
+                <h3 class="text-light">Completed Form</h3>
+                    <div class="table-responsive">
+                        <table class="table text-light">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th class="text-light">Ticket #</th>
+                                    <th class="text-light">Permit Type:</th>
+                                    <th class="text-light">Name of Business</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="table_paid">
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
 
        <?php

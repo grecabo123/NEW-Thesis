@@ -51,6 +51,8 @@
     <link href="../../assets/img/Icon/logo.png" rel="icon">
      <link href="../../assets/css/user.css" rel="stylesheet">
      <link href="../../assets/css/market.css" rel="stylesheet">
+     <script src="../../assets/js/chart.js"></script>
+     <link rel="stylesheet" href="css/cro.css">
     <title>Chief Officer Relation</title>
 </head>
 <body>
@@ -80,7 +82,7 @@
                 </div>
 
                 <!-- end of dropdown -->
-            
+              <a  href="log" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-user-clock me-2"></i>Activity Log</a>
                 <a href="../logout" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
                         
@@ -93,7 +95,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left text-muted fs-4 me-3" id="menu-toggle"></i>
-                    <!-- <h2 class="fs-2 m-0 ">Dashboard</h2> -->
+                    <center><h2 class="fs-4 m-0 text-light">Statistic Report</h2></center>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -115,12 +117,60 @@
                     </ul>
                 </div>
             </nav>
+
+            <div class="container">
+              <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-4">
+                  &nbsp<button class="btn btn-secondary btn-sm" onclick="Refresh();"><i class="fas fa-sync"></i> Refresh</button>
+                  &nbsp<button class="btn btn-secondary btn-sm more"><i class="fas fa-info-circle text-light"></i> More</button>
+                </div>
+                <center><h3 class="text-light mt-2 fs-5">Application Form</h3></center>
+              </div>
+            </div> 
+            </div>
+
+
+
+            <!-- statistic -->
+
+            <div class="container size_chart bg-light mt-2 rounded">
+
+              <canvas id="myChart"></canvas>
+              
+              <div class="container mt-3">
+                <div class="list_total">
+                  <ul>
+                    <li><span class="text-light fs-5">Total Application for Today: <span id="">3</span></span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- end of statistic -->
+
+
         </div>
 
        <?php
   }
 
 ?>
+
+
+ <?php  
+
+    include 'get/count.php';
+    
+    foreach ($result_i as $value) {
+            $incident_type[] = $value['service_type'];
+            $total_incident[] = $value['total'];
+
+            
+        }
+    ?>
+
      
 
 
@@ -130,6 +180,91 @@
     <script src="../../assets/js/function.js"></script>
     <script src="../../assets/js/date.js"></script>
     <script src="js/script.js"></script>
+
+
+    <script>
+      const labels = <?php echo json_encode($incident_type); ?>;
+        let delayed;
+        
+      var e = document.getElementById("myChart").getContext("2d");
+
+    gradientFill = e.createLinearGradient(60, 0, 10, 300);
+    gradientFill.addColorStop(0, "#81B8EA");
+    gradientFill.addColorStop(1, "#81B8EA");
+
+    const config = {
+      type: "bar",
+      data: {
+        labels: <?php echo json_encode($incident_type); ?>,
+        datasets: [{
+          label: "Application Forms",
+          backgroundColor: gradientFill,
+          borderColor: "#2CA8FF",
+          pointBorderColor: "#FFF",
+          pointBackgroundColor: "#2CA8FF",
+          pointBorderWidth: 2,
+          pointHoverRadius: 4,
+          pointHoverBorderWidth: 1,
+          pointRadius: 4,
+          fill: true,
+          borderWidth: 1,
+          data: <?php echo json_encode($total_incident); ?>
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        legend: {
+          display: true
+        },
+        tooltips: {
+          bodySpacing: 4,
+          mode: "nearest",
+          intersect: 0,
+          position: "nearest",
+          xPadding: 10,
+          yPadding: 10,
+          caretPadding: 10
+        },
+        responsive: 1,
+        scales: {
+          yAxes: [{
+            gridLines: 0,
+            gridLines: {
+              zeroLineColor: "transparent",
+              drawBorder: false
+            }
+          }],
+          xAxes: [{
+            display: 0,
+            gridLines: 0,
+            ticks: {
+              display: false
+            },
+            gridLines: {
+              zeroLineColor: "transparent",
+              drawTicks: false,
+              display: false,
+              drawBorder: false
+            }
+          }]
+        },
+        layout: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: 15,
+            bottom: 15
+          }
+        }
+      }
+    };
+
+
+      let bar = new Chart(
+        document.getElementById('myChart').getContext("2d"),
+        config
+      );
+    </script>
 
 </body>
 </html>

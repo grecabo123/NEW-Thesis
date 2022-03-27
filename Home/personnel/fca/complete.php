@@ -72,6 +72,7 @@
                 <a  href="form" class="list-group-item list-group-item-action bg-transparent second-text fw-bold " style="cursor: pointer;"><i
             class="fas fa-project-diagram me-2"></i>Transaction</a>
             <a  href="complete" class="list-group-item list-group-item-action bg-transparent second-text fw-bold text-primary" style="cursor: pointer;"><i class="far fa-calendar-check me-2"></i>Completed</a>
+            <a  href="log" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-user-clock me-2"></i>Activity Log</a>
                 <a href="../logout" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
             </div>

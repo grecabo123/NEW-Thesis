@@ -42,3 +42,10 @@
 #caret.rotate{
   transform: rotate(180deg);
 }
+.size_chart{
+	position: relative;
+	width: 80vw;
+	height: 50vh;
+	padding: 9px 10px;
+	background-color: #81B8EA;
+}

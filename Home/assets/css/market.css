@@ -294,6 +294,18 @@ input:focus {
 	display: none;
 }
 
+/*chart size*/
+
+.size_chart{
+	position: relative;
+	width: 80vw;
+	height: 50vh;
+	padding: 9px 10px;
+	background-color: #81B8EA;
+}
+
+/*end of chart size*/
+
 
 /*payment*/
 

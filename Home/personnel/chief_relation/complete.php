@@ -81,7 +81,7 @@
 
                 <!-- end of dropdown -->
 
-            
+              <a  href="log" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-user-clock me-2"></i>Activity Log</a>
                 <a href="../logout" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
             </div>
@@ -115,6 +115,40 @@
                     </ul>
                 </div>
             </nav>
+
+              <div class="view_details">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="modal-title">
+                  <span>Details</span>
+                </div>
+              </div>
+
+
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="">
+                          <input type="text" class="form-control">
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end of modal body -->
+
+              <div class="modal-footer">
+                <button class="btn btn-seconary">Close</button>
+                <button class="btn btn-primary"></button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
             <div class="data-table">
               <div class="m-4">
                 <div class="text-light">
@@ -127,7 +161,7 @@
                                     <th class="text-light">Ticket #</th>
                                     <th class="text-light">Permit Type:</th>
                                     <th class="text-light">Business</th>
-                                    <th class="text-light">Action</th>
+                                    <th class="text-light text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody id="tbl_complete">
@@ -140,10 +174,19 @@
 
         </div>
 
+
+        <!-- modal  view details-->
+
+
+
+        <!-- end of modal view details -->
+
        <?php
   }
 
 ?>
+
+
      
 
 

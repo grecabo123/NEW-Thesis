@@ -78,6 +78,7 @@
 
             <a  href="receipt" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-receipt me-2"></i>Reciept</a>
             <a  href="complete" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="far fa-calendar-check me-2"></i>Completed</a>
+            <a  href="log" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" style="cursor: pointer;"><i class="fas fa-user-clock me-2"></i>Activity Log</a>
                 <a href="../logout" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
             </div>
@@ -111,6 +112,23 @@
                     </ul>
                 </div>
             </nav>
+
+            <div class="container">
+              <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-4">
+                  &nbsp<button class="btn btn-secondary btn-sm" onclick="Refresh();"><i class="fas fa-sync"></i> Refresh</button>
+                  &nbsp<button class="btn btn-secondary btn-sm more"><i class="fas fa-info-circle text-light"></i> More</button>
+                </div>
+                <center><h3 class="text-light mt-2 fs-5"></h3></center>
+              </div>
+            </div> 
+            </div>
+
+
+
+          
+
         </div>
             <?php
 
@@ -127,5 +145,9 @@
     <script src="../../assets/js/date.js"></script>
     <script src="js/notification.js"></script>
     <script src="../inspector/js/script.js"></script>
+
+
+
+
 </body>
 </html>

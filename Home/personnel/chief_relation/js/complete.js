@@ -33,7 +33,7 @@ function load_data_complete(){
 								'<td class="text-light"> <span id="fk_id">'+val['queue']+'</span></td>'+
                                 '<td class="text-light">'+val['service_type']+'</td>'+
                                 '<td class="text-light">'+val['business_name']+'</td>'+
-                                '<td class="text-light"> <button id="view_details" value="'+val['tbl_service_id']+'" class="btn btn-sm-outline text-info">Details</button> </td>'+
+                                '<td class="text-light text-center"> <button id="view_details" value="'+val['tbl_service_id']+'" class="btn btn-sm-outline text-info">Details</button> </td>'+
                             '</tr>'
 					);
 				});
